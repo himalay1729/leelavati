@@ -1,0 +1,214 @@
+{
+  "volumes": [
+    {
+      "id": 1,
+      "title": "Volume 1",
+      "year": 2023,
+      "issues": [
+        {
+          "slug": "may-2023",
+          "title": "Issue 1",
+          "month": "May",
+          "year": 2023,
+          "coverImage": "/assets/covers/issue1.jpg",
+          "articles": [
+            { "id": 1, "title": "Digital Transformation in Higher Education", "author": "Dr. Kavita Rao" },
+            { "id": 2, "title": "The Rise of EdTech Entrepreneurs", "author": "Amit Shah" }
+          ]
+        },
+        {
+          "slug": "september-2023",
+          "title": "Issue 2",
+          "month": "September",
+          "year": 2023,
+          "coverImage": "/assets/covers/issue2.jpg",
+          "articles": [
+            { "id": 1, "title": "Remote Learning: Lessons from the Pandemic", "author": "Dr. Sanjay Pillai" },
+            { "id": 2, "title": "Learning Management Systems: A Comparative Study", "author": "Pooja Agarwal" }
+          ]
+        },
+        {
+          "slug": "october-2023",
+          "title": "Issue 3",
+          "month": "October",
+          "year": 2023,
+          "coverImage": "/assets/covers/issue3.jpg",
+          "articles": [
+            { "id": 1, "title": "Remote Learning: Lessons from the Pandemic", "author": "Dr. Sanjay Pillai" },
+            { "id": 2, "title": "Learning Management Systems: A Comparative Study", "author": "Pooja Agarwal" }
+          ]
+        },
+        {
+          "slug": "november-2023",
+          "title": "Issue 4",
+          "month": "November",
+          "year": 2023,
+          "coverImage": "/assets/covers/issue4.jpg",
+          "articles": [
+            { "id": 1, "title": "Remote Learning: Lessons from the Pandemic", "author": "Dr. Sanjay Pillai" },
+            { "id": 2, "title": "Learning Management Systems: A Comparative Study", "author": "Pooja Agarwal" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Volume 2",
+      "year": 2024,
+      "issues": [
+        {
+          "slug": "january-2024",
+          "title": "Issue 1",
+          "month": "January",
+          "year": 2024,
+          "coverImage": "/assets/covers/issue3.jpg",
+          "articles": [
+            { "id": 1, "title": "Transforming Education Through Digital Learning", "author": "Dr. Ananya Das" },
+            { "id": 2, "title": "Inclusive Classrooms: Bridging the Accessibility Gap", "author": "Rohit Menon" }
+          ]
+        },
+        {
+          "slug": "july-2024",
+          "title": "Issue 2",
+          "month": "July",
+          "year": 2024,
+          "coverImage": "/assets/covers/issue4.jpg",
+          "articles": [
+            { "id": 1, "title": "Artificial Intelligence in Assessment Systems", "author": "Sidharth Sarangi" },
+            { "id": 2, "title": "Teacher’s Role in Remote Education", "author": "Anita Kumar" }
+          ]
+        },
+        {
+          "slug": "november-2024",
+          "title": "Issue 3",
+          "month": "November",
+          "year": 2024,
+          "coverImage": "/assets/covers/issue5.jpg",
+          "articles": [
+            { "id": 1, "title": "Gamification in Learning: A Student-Centric Approach", "author": "Priya Menon" },
+            { "id": 2, "title": "Cybersecurity for Online Classrooms", "author": "Dr. Aakash Gupta" },
+            { "id": 3, "title": "Evolving EdTech Startups in India", "author": "Nidhi Bansal" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Volume 3",
+      "year": 2025,
+      "issues": [
+        {
+          "slug": "january-2025",
+          "title": "Issue 1",
+          "month": "January",
+          "year": 2025,
+          "coverImage": "/assets/covers/issue6.jpg",
+          "articles": [
+            { "id": 1, "title": "Blockchain Credentials in Education", "author": "Prof. Rakesh Nanda" },
+            { "id": 2, "title": "Ethical AI for Learning Platforms", "author": "Dr. Meera Joshi" }
+          ]
+        },
+        {
+          "slug": "june-2025",
+          "title": "Issue 2",
+          "month": "June",
+          "year": 2025,
+          "coverImage": "/assets/covers/issue7.jpg",
+          "articles": [
+            { "id": 1, "title": "Virtual Reality Classrooms: The Next Frontier", "author": "Arjun Bhattacharya" },
+            { "id": 2, "title": "Student Data Privacy and Policy Reform", "author": "Dr. Rina Patel" }
+          ]
+        },
+        {
+          "slug": "october-2025",
+          "title": "Issue 3",
+          "month": "October",
+          "year": 2025,
+          "coverImage": "/assets/covers/issue8.jpg",
+          "articles": [
+            { "id": 1, "title": "Reimagining Curriculum Design in the Digital Age", "author": "Dr. Kunal Roy" },
+            { "id": 2, "title": "Empowering Educators with Data-Driven Insights", "author": "Ankita Sharma" },
+            { "id": 3, "title": "Design Thinking in School Projects", "author": "Dr. Tanmay Sahoo" }
+          ]
+        },
+        {
+          "slug": "november-2025",
+          "title": "Issue 4",
+          "month": "November",
+          "year": 2025,
+          "coverImage": "/assets/covers/issue8.jpg",
+          "articles": [
+            { "id": 1, "title": "Reimagining Curriculum Design in the Digital Age", "author": "Dr. Kunal Roy" },
+            { "id": 2, "title": "Empowering Educators with Data-Driven Insights", "author": "Ankita Sharma" },
+            { "id": 3, "title": "Design Thinking in School Projects", "author": "Dr. Tanmay Sahoo" }
+          ]
+        },
+        {
+          "slug": "december-2025",
+          "title": "Issue 5",
+          "month": "December",
+          "year": 2025,
+          "coverImage": "/assets/covers/issue9.jpg",
+          "articles": [
+            { "id": 1, "title": "Reimagining Curriculum Design in the Digital Age", "author": "Dr. Kunal Roy" },
+            { "id": 2, "title": "Empowering Educators with Data-Driven Insights", "author": "Ankita Sharma" },
+            { "id": 3, "title": "Design Thinking in School Projects", "author": "Dr. Tanmay Sahoo" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Volume 4",
+      "year": 2026,
+      "issues": [
+        {
+          "slug": "march-2026",
+          "title": "Issue 1",
+          "month": "March",
+          "year": 2026,
+          "coverImage": "/assets/covers/issue9.jpg",
+          "articles": [
+            { "id": 1, "title": "AI Tutors: Personalized Learning Reimagined", "author": "Dr. Shalini Verma" },
+            { "id": 2, "title": "Bridging Urban-Rural Learning Gaps with Technology", "author": "Manoj Prasad" },
+            { "id": 3, "title": "Open Educational Resources and Global Equity", "author": "Dr. Leena Iyer" }
+          ]
+        },
+        {
+          "slug": "august-2026",
+          "title": "Issue 2",
+          "month": "August",
+          "year": 2026,
+          "coverImage": "/assets/covers/issue10.jpg",
+          "articles": [
+            { "id": 1, "title": "Hybrid Learning Models That Work", "author": "Vivek Sharma" },
+            { "id": 2, "title": "The Role of Cloud Computing in Modern Education", "author": "Dr. Neha Kapoor" },
+            { "id": 3, "title": "Sustainability Education for the Next Generation", "author": "Dr. Ajay Rao" }
+          ]
+        },
+        {
+          "slug": "december-2026",
+          "title": "Issue 3",
+          "month": "December",
+          "year": 2026,
+          "coverImage": "/assets/covers/issue11.jpg",
+          "articles": [
+            { "id": 1, "title": "EdTech Policy Trends Around the World", "author": "Sonia Jain" },
+            { "id": 2, "title": "The Future of Learning Analytics", "author": "Dr. Nishant Tiwari" },
+            { "id": 3, "title": "Collaborative Tools for Global Classrooms", "author": "Megha Pillai" },
+            { "id": 4, "title": "The Future of Learning Analytics", "author": "Dr. Nishant Tiwari" },
+            { "id": 5, "title": "Collaborative Tools for Global Classrooms", "author": "Megha Pillai" },
+            { "id": 6, "title": "The Future of Learning Analytics", "author": "Dr. Nishant Tiwari" },
+            { "id": 7, "title": "Collaborative Tools for Global Classrooms", "author": "Megha Pillai" },
+            { "id": 8, "title": "The Future of Learning Analytics", "author": "Dr. Nishant Tiwari" },
+            { "id": 9, "title": "Collaborative Tools for Global Classrooms", "author": "Megha Pillai" },
+            { "id": 10, "title": "The Future of Learning Analytics", "author": "Dr. Nishant Tiwari" },
+            { "id": 11, "title": "Collaborative Tools for Global Classrooms", "author": "Megha Pillai" },
+            { "id": 12, "title": "The Future of Learning Analytics", "author": "Dr. Nishant Tiwari" },
+            { "id": 13, "title": "Collaborative Tools for Global Classrooms", "author": "Megha Pillai" }
+          ]
+        }
+      ]
+    }
+  ]
+}

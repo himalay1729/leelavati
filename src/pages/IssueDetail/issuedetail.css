@@ -1,0 +1,101 @@
+.issue-detail {
+  padding: 2rem 1rem;
+}
+
+.issue-content {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left {
+  flex: 1.2;
+  min-width: 320px;
+}
+
+.right {
+  flex: 0.8;
+  text-align: center;
+}
+
+.left h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #111827;
+}
+
+.meta {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.left h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.25rem;
+  color: #1e293b;
+}
+
+.left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.left ul li {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: transform 0.15s ease;
+}
+
+.left ul li:hover {
+  transform: translateY(-2px);
+}
+
+.left ul li strong {
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+.left ul li span {
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.cover-img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 900px) {
+  .issue-content {
+    flex-direction: column;
+  }
+
+  .right {
+    order: -1;
+    margin-bottom: 1.5rem;
+  }
+
+  .left h1 {
+    font-size: 1.6rem;
+  }
+
+  .left ul li strong {
+    font-size: 1rem;
+  }
+}

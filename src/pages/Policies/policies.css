@@ -1,0 +1,64 @@
+/* src/pages/Policies/policies.css */
+
+.policies-page {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.policies-page h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.policies-page section {
+  background: #ffffff;
+  border: 1px solid #e6edf3;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 18px rgba(20, 32, 51, 0.04);
+}
+
+.policies-page section h2 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-dark);
+}
+
+.policies-page section p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+/* smaller summaries / meta */
+.policies-page .meta {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* two-column layout for wide screens (if you add more sections) */
+@media (min-width: 900px) {
+  .policies-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .policies-page section {
+    padding: 1.5rem;
+  }
+}
+
+/* mobile spacing tweak */
+@media (max-width: 480px) {
+  .policies-page {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .policies-page h1 {
+    font-size: 1.6rem;
+  }
+}
