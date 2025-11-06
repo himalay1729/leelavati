@@ -1,5 +1,38 @@
 .about-page p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   color: #475569;
   max-width: 800px;
+}
+
+.left-align {
+    text-align: left;
+  }
+  
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.view-issue-btn {
+  display: inline-block;
+  margin-top: 1.25rem;
+  background-color: #2f6dfc;
+  color: #fff;
+  padding: 0.7rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.view-issue-btn:hover {
+  background-color: #1f56d8;
+}
+
+@media (max-width: 768px) {
+  .view-issue-btn {
+    width: 100%;
+    text-align: center;
+  }
 }

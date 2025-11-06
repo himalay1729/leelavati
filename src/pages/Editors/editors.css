@@ -1,0 +1,179 @@
+.editorial-page h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+/* Lead paragraph */
+.editorial-page .lead {
+  color: #475569;
+  max-width: 880px;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Grid for editor cards */
+.editor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* adjusted min */
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  /* prevent accidental horizontal scroll */
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Card */
+.editor-card {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  padding: 1.05rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+  background: #fff;
+  border: 1px solid rgba(15,23,42,0.04);
+  transition: transform .15s ease, box-shadow .15s ease;
+  box-sizing: border-box;      /* include padding in width calc */
+  width: 100%;                 /* don't allow intrinsic width to overflow */
+  overflow: hidden;            /* hide any accidental spill */
+}
+
+/* hover effect */
+.editor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+/* avatar / initials circle */
+.editor-avatar {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  flex-shrink: 0;              /* prevent avatar from shrinking below set size */
+  border: 1px solid rgba(47,109,252,0.12);
+  background: linear-gradient(180deg, rgba(47,109,252,0.12), rgba(47,109,252,0.06));
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.editor-card img.editor-avatar {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;           /* crop to circle nicely */
+  display: block;              /* remove inline-gap issues */
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.editor-info {
+  flex: 1 1 auto;     /* allow to grow & shrink */
+  min-width: 0;       /* *critical* — allows text to wrap/truncate instead of forcing overflow */
+  overflow: hidden;   /* keep long names/bios from pushing layout */
+}
+
+
+.editor-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0f172a;
+  white-space: nowrap;        /* keep single-line look on wide screens */
+  overflow: hidden;
+  text-overflow: ellipsis;    /* show "..." when too long */
+}
+
+.editor-role {
+  font-size: 0.88rem;
+  color: #2f6dfc; /* primary blue */
+  font-weight: 600;
+  margin-bottom: 0.28rem;
+}
+
+.editor-affiliation {
+  font-size: 0.88rem;
+  color: #475569;
+  margin-bottom: 0.5rem;
+}
+
+/* Bio can wrap to multiple lines without pushing grid */
+.editor-bio {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.45;
+  max-height: 4.35rem;        /* limit height to ~3 lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* small utilities */
+.actions {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary {
+  background-color: #2f6dfc;
+  color: #fff;
+  border: none;
+}
+.btn-primary:hover { background-color: #1f56d8; }
+
+.btn-secondary {
+  background-color: transparent;
+  color: #2f6dfc;
+  border: 1px solid rgba(47,109,252,0.14);
+}
+.btn-secondary:hover {
+  background-color: rgba(47,109,252,0.04);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .editor-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .editor-grid { grid-template-columns: 1fr; }
+  .editor-card { gap: 0.6rem; padding: 0.95rem; }
+  .editor-avatar { min-width: 48px; min-height: 48px; font-size: 0.95rem; }
+  .editor-name { white-space: normal; }
+}
+
+/* Responsive tweak: reduce avatar on very small screens */
+@media (max-width: 420px) {
+  .editor-avatar, .editor-card img.editor-avatar {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .editor-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .editor-name { white-space: normal; } /* allow multi-line names on very small screens */
+}

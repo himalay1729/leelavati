@@ -3,11 +3,19 @@
   padding-top: 4rem;
 }
 
+.home p {
+  margin-bottom: 1.2rem; /* add vertical space between paragraphs */
+}
+
 .tagline {
   max-width: 600px;
   margin: 1rem auto 2rem;
   color: #475569;
 }
+
+.left-align {
+    text-align: left;
+  }
 
 .actions {
   display: flex;
@@ -15,3 +23,60 @@
   gap: 1rem;
   flex-wrap: wrap;
 }
+
+.current-issue {
+  padding: 2rem 1rem;
+}
+
+.left {
+  flex: .8;
+  min-width: 230px;
+}
+
+.right {
+  flex: .8;
+  min-width: 230px;
+}
+
+.cover-img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.meta {
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.view-issue-btn {
+  display: inline-block;
+  margin-top: 1.25rem;
+  background-color: #2f6dfc;
+  color: #fff;
+  padding: 0.7rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.view-issue-btn:hover {
+  background-color: #1f56d8;
+}
+
+@media (max-width: 768px) {
+  .current-issue-content {
+    flex-direction: column;
+  }
+
+  .right {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  .view-issue-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+

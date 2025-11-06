@@ -11,6 +11,7 @@
           "month": "May",
           "year": 2023,
           "coverImage": "/assets/covers/issue1.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Digital Transformation in Higher Education", "author": "Dr. Kavita Rao" },
             { "id": 2, "title": "The Rise of EdTech Entrepreneurs", "author": "Amit Shah" }
@@ -22,6 +23,7 @@
           "month": "September",
           "year": 2023,
           "coverImage": "/assets/covers/issue2.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Remote Learning: Lessons from the Pandemic", "author": "Dr. Sanjay Pillai" },
             { "id": 2, "title": "Learning Management Systems: A Comparative Study", "author": "Pooja Agarwal" }
@@ -33,6 +35,7 @@
           "month": "October",
           "year": 2023,
           "coverImage": "/assets/covers/issue3.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Remote Learning: Lessons from the Pandemic", "author": "Dr. Sanjay Pillai" },
             { "id": 2, "title": "Learning Management Systems: A Comparative Study", "author": "Pooja Agarwal" }
@@ -44,6 +47,7 @@
           "month": "November",
           "year": 2023,
           "coverImage": "/assets/covers/issue4.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Remote Learning: Lessons from the Pandemic", "author": "Dr. Sanjay Pillai" },
             { "id": 2, "title": "Learning Management Systems: A Comparative Study", "author": "Pooja Agarwal" }
@@ -62,6 +66,7 @@
           "month": "January",
           "year": 2024,
           "coverImage": "/assets/covers/issue3.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Transforming Education Through Digital Learning", "author": "Dr. Ananya Das" },
             { "id": 2, "title": "Inclusive Classrooms: Bridging the Accessibility Gap", "author": "Rohit Menon" }
@@ -73,6 +78,7 @@
           "month": "July",
           "year": 2024,
           "coverImage": "/assets/covers/issue4.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Artificial Intelligence in Assessment Systems", "author": "Sidharth Sarangi" },
             { "id": 2, "title": "Teacher’s Role in Remote Education", "author": "Anita Kumar" }
@@ -84,6 +90,7 @@
           "month": "November",
           "year": 2024,
           "coverImage": "/assets/covers/issue5.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Gamification in Learning: A Student-Centric Approach", "author": "Priya Menon" },
             { "id": 2, "title": "Cybersecurity for Online Classrooms", "author": "Dr. Aakash Gupta" },
@@ -103,6 +110,7 @@
           "month": "January",
           "year": 2025,
           "coverImage": "/assets/covers/issue6.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Blockchain Credentials in Education", "author": "Prof. Rakesh Nanda" },
             { "id": 2, "title": "Ethical AI for Learning Platforms", "author": "Dr. Meera Joshi" }
@@ -114,6 +122,7 @@
           "month": "June",
           "year": 2025,
           "coverImage": "/assets/covers/issue7.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Virtual Reality Classrooms: The Next Frontier", "author": "Arjun Bhattacharya" },
             { "id": 2, "title": "Student Data Privacy and Policy Reform", "author": "Dr. Rina Patel" }
@@ -125,6 +134,7 @@
           "month": "October",
           "year": 2025,
           "coverImage": "/assets/covers/issue8.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Reimagining Curriculum Design in the Digital Age", "author": "Dr. Kunal Roy" },
             { "id": 2, "title": "Empowering Educators with Data-Driven Insights", "author": "Ankita Sharma" },
@@ -137,6 +147,7 @@
           "month": "November",
           "year": 2025,
           "coverImage": "/assets/covers/issue8.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Reimagining Curriculum Design in the Digital Age", "author": "Dr. Kunal Roy" },
             { "id": 2, "title": "Empowering Educators with Data-Driven Insights", "author": "Ankita Sharma" },
@@ -149,6 +160,7 @@
           "month": "December",
           "year": 2025,
           "coverImage": "/assets/covers/issue9.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Reimagining Curriculum Design in the Digital Age", "author": "Dr. Kunal Roy" },
             { "id": 2, "title": "Empowering Educators with Data-Driven Insights", "author": "Ankita Sharma" },
@@ -168,6 +180,7 @@
           "month": "March",
           "year": 2026,
           "coverImage": "/assets/covers/issue9.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "AI Tutors: Personalized Learning Reimagined", "author": "Dr. Shalini Verma" },
             { "id": 2, "title": "Bridging Urban-Rural Learning Gaps with Technology", "author": "Manoj Prasad" },
@@ -180,6 +193,7 @@
           "month": "August",
           "year": 2026,
           "coverImage": "/assets/covers/issue10.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "Hybrid Learning Models That Work", "author": "Vivek Sharma" },
             { "id": 2, "title": "The Role of Cloud Computing in Modern Education", "author": "Dr. Neha Kapoor" },
@@ -192,6 +206,7 @@
           "month": "December",
           "year": 2026,
           "coverImage": "/assets/covers/issue11.jpg",
+          "toc": "/assets/covers/toc-test.png",
           "articles": [
             { "id": 1, "title": "EdTech Policy Trends Around the World", "author": "Sonia Jain" },
             { "id": 2, "title": "The Future of Learning Analytics", "author": "Dr. Nishant Tiwari" },

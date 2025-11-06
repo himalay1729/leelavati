@@ -22,11 +22,11 @@ const Header = () => {
           <ul>
             {[
               ["Home", "/"],
-              ["Current Issue", "/current-issue"],
+              ["About", "/about"],
+              ["Editors", "/editors"],
               ["Archives", "/archives"],
               ["Subscribe", "/subscribe"],
-              ["Policies", "/policies"],
-              ["About", "/about"],
+              ["Policies", "/policies"],         
               ["For Authors", "/for-authors"],
             ].map(([label, path]) => (
               <li key={path}>

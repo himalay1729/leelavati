@@ -16,7 +16,7 @@
 }
 
 .chm-left h1 {
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: 700;
   letter-spacing: 0.5px;
   color: #0f172a;
@@ -32,7 +32,7 @@
 }
 
 .chm-right img {
-  height: 70px;
+  height: 100px;
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
