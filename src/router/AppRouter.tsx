@@ -10,7 +10,7 @@ import About from "../pages/About";
 import Policies from "../pages/Policies";
 import Subscribe from "../pages/Subscribe";
 import ForAuthors from "../pages/ForAuthors";
-import CompanyHeaderMark from "../components/CompanyHeaderMark";
+// import CompanyHeaderMark from "../components/CompanyHeaderMark";
 
 function AppRouter() {
   return (
