@@ -1,0 +1,54 @@
+{
+  "editors": [
+    {
+      "name": "Prof. C K Mohapatra",
+      "affiliation": "IMA",
+      "role": "Editor-in-Chief",
+      "bio": "Research in problem-solving pedagogy, mathematical olympiad training, and geometry education.",
+      "photoUrl": "/editors/himalaya.jpg"
+    },
+    {
+      "name": "Prof. Pratima Panigrahi",
+      "affiliation": "IIT Kharagpur",
+      "role": "Editor",
+      "bio": "Algebraic number theory and history of Indian mathematics.",
+      "photoUrl": "/editors/himalaya.jpg"
+    },
+    {
+      "name": "Prof. Soumyashant Nayak",
+      "affiliation": "ISI Bangalore",
+      "role": "Associate Editor",
+      "bio": "Coordinates submissions, editorial workflow, and student outreach programs.",
+      "photoUrl": "/editors/himalaya.jpg"
+    },
+    {
+      "name": "Dr. Himalaya Senapati",
+      "affiliation": "AVP, HSBC",
+      "role": "Associate Editor",
+      "bio": "Mathematics education research and problem-based learning strategies.",
+      "photoUrl": "/editors/himalaya.jpg"
+    },
+    {
+      "name": "Prof. Anup Dixit",
+      "affiliation": "IMSc",
+      "role": "Editorial Advisory Board",
+      "bio": "History of mathematics with emphasis on South Asian contributions.",
+      "photoUrl": "/editors/himalaya.jpg"
+    },
+    {
+      "name": "Prof. Srinivas K",
+      "affiliation": "IISER Tirupati",
+      "role": "Editorial Advisory Board",
+      "bio": "History of mathematics with emphasis on South Asian contributions.",
+      "photoUrl": "/editors/himalaya.jpg"
+    },
+    {
+      "name": "Dr. Shyam Shundar Agrawal",
+      "affiliation": "IMSc",
+      "role": "Editorial Advisory Board",
+      "bio": "History of mathematics with emphasis on South Asian contributions.",
+      "photoUrl": "/editors/himalaya.jpg"
+    }
+  ]
+}
+

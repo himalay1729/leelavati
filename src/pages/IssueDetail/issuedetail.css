@@ -1,8 +1,11 @@
+/* Scoped IssueDetail Styles — now completely isolated to .issue-detail */
+
 .issue-detail {
   padding: 2rem 1rem;
 }
 
-.issue-content {
+/* Content wrapper inside the issue-detail page */
+.issue-detail .issue-content {
   display: flex;
   gap: 3rem;
   align-items: flex-start;
@@ -11,30 +14,35 @@
   margin: 0 auto;
 }
 
-.left {
+/* Left column (text, article list) */
+.issue-detail .left {
   flex: 1.2;
   min-width: 320px;
+  box-sizing: border-box;
 }
 
-.right {
+/* Right column (cover image) */
+.issue-detail .right {
   flex: 0.8;
   text-align: center;
+  box-sizing: border-box;
 }
 
-.left h1 {
+/* Headings and meta info */
+.issue-detail .left h1 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
   color: #111827;
 }
 
-.meta {
+.issue-detail .meta {
   color: #64748b;
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
 
-.left h2 {
+.issue-detail .left h2 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   border-bottom: 2px solid #e2e8f0;
@@ -42,13 +50,14 @@
   color: #1e293b;
 }
 
-.left ul {
+/* Article list */
+.issue-detail .left ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.left ul li {
+.issue-detail .left ul li {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
@@ -61,41 +70,46 @@
   transition: transform 0.15s ease;
 }
 
-.left ul li:hover {
+.issue-detail .left ul li:hover {
   transform: translateY(-2px);
 }
 
-.left ul li strong {
+.issue-detail .left ul li strong {
   font-size: 1.05rem;
   color: #111827;
 }
 
-.left ul li span {
+.issue-detail .left ul li span {
   color: #475569;
   font-size: 0.95rem;
 }
 
-.cover-img {
+/* Cover image */
+.issue-detail .cover-img {
   max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
 }
 
+/* Responsive adjustments */
 @media (max-width: 900px) {
-  .issue-content {
+  .issue-detail .issue-content {
     flex-direction: column;
   }
 
-  .right {
+  .issue-detail .right {
     order: -1;
     margin-bottom: 1.5rem;
   }
 
-  .left h1 {
+  .issue-detail .left h1 {
     font-size: 1.6rem;
   }
 
-  .left ul li strong {
+  .issue-detail .left ul li strong {
     font-size: 1rem;
   }
 }

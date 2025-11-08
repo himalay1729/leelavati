@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="or">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Odia InScript — TipTap Minimal Demo</title>
+
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya&display=swap" rel="stylesheet">
+
+  <style>
+:root{
+  --bg:#f5f7fb;
+  --panel:#eef3fb;
+  --key-bg:#ffffff;
+  --key-border:#e6eef8;
+  --key-shadow: rgba(20,30,60,0.06);
+  --key-radius:12px;
+  --accent: #2563eb;
+  --accent-weak: rgba(37,99,235,0.12);
+  --text-primary:#0f172a;
+  --text-muted:#64748b;
+  --press-translate:2px;
+  --transition-quick:160ms;
+}
+html,body{height:100%;}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Oriya",sans-serif;background:var(--bg);color:var(--text-primary);}
+.container{min-height:100vh;display:flex;flex-direction:column;gap:12px;padding:18px}
+.header{display:flex;align-items:center;justify-content:space-between}
+.header h1{margin:0;font-size:20px}
+.controls{display:flex;gap:8px;align-items:center}
+.card{background:var(--panel);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(10,15,30,0.03)}
+.typing-area{display:flex;gap:12px;align-items:flex-start;overflow:visible;flex-wrap:nowrap}
+.typing-area.stacked{flex-direction:column;align-items:stretch}
+.kbd-wrap{display:flex;flex-direction:column;align-items:center;padding:8px;overflow:visible;box-sizing:border-box;width:auto;max-width:1100px;flex:0 0 auto;}
+.keyboard{display:flex;flex-direction:column;gap:8px;max-width:1100px;width:100%;}
+.k-row{display:flex;gap:10px;justify-content:center;padding:4px 6px}
+.k{background:linear-gradient(180deg,var(--key-bg),#fbfdff 60%);color:var(--text-primary);border-radius:var(--key-radius);min-width:44px;height:64px;display:block;position:relative;box-sizing:border-box;border:1px solid var(--key-border);box-shadow:0 6px 18px var(--key-shadow);padding-top:8px;padding-bottom:8px;transition: transform var(--transition-quick) ease, box-shadow var(--transition-quick) ease, background var(--transition-quick) ease, color var(--transition-quick) ease;cursor:pointer;overflow:visible}
+.k:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,30,60,0.09)}
+.k.active, .k:active{transform:translateY(var(--press-translate));box-shadow:0 3px 10px rgba(10,15,30,0.08) inset, 0 2px 6px rgba(10,15,30,0.06)}
+.k:focus{outline:none;box-shadow:0 0 0 3px rgba(37,99,235,0.14);transform:translateY(-1px)}
+.k .center{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-size:11px;line-height:1;opacity:0.35;font-weight:500;color:var(--text-muted);z-index:1;pointer-events:none;user-select:none;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Oriya",sans-serif}
+.k .top{position:absolute;top:8px;font-size:11px;color:var(--text-muted);font-weight:600}
+.k .bottom{position:absolute;bottom:10px;font-size:18px;line-height:1;font-weight:700;color:var(--text-primary);-webkit-font-smoothing:antialiased;z-index:2}
+.k.wide{min-width:96px;padding-left:12px;padding-right:12px}
+.k.space{min-width:320px;border-radius:18px}
+.k.small{min-width:34px;height:56px}
+.k.hide-bottom .bottom{visibility:hidden}
+.k.pressed{
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 12%, var(--key-bg) 88%), #f7fbff 65%);
+  box-shadow: 0 6px 18px rgba(20,30,60,0.04), 0 0 0 2px var(--accent-weak) inset;
+  color: var(--text-primary);
+}
+.k{position:relative;overflow:hidden}
+.k .ripple{position:absolute;border-radius:999px;transform:scale(0);opacity:0.18;pointer-events:none;background:var(--accent);transition:transform 420ms cubic-bezier(.2,.9,.25,1),opacity 420ms}
+.k .ripple.show{transform:scale(8);opacity:0}
+.k .muted{font-size:12px;color:var(--text-muted)}
+@media (max-width:900px){
+  .k.space{min-width:200px}
+  .k{min-width:38px;height:56px}
+}
+@media (max-width:560px){
+  .keyboard{transform:scale(0.92);transform-origin:center;}
+  .k.space{min-width:140px}
+}
+.footer-note{font-size:13px;color:var(--text-muted)}
+.layout-toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:transparent;border:1px solid transparent;cursor:pointer}
+.layout-toggle[aria-pressed="true"]{background:linear-gradient(180deg,#fff,#f8fbff);box-shadow:0 6px 18px rgba(20,30,60,0.03);border-color:var(--key-border)}
+.layout-toggle .dot{width:10px;height:10px;border-radius:50%;background:var(--accent-weak);display:inline-block}
+
+/* Editor card */
+.typing-card { background: #ffffff; position:relative; }
+
+      #editor { min-height:18vh; max-height: calc(70vh - 120px); padding:14px;  font-family:"Noto Sans Oriya",sans-serif; box-sizing:border-box; border:1px solid #e6eef8; border-radius:10px; outline:none; max-width:none; overflow: hidden; white-space:pre-wrap; word-wrap:break-word; line-height:1;}
+
+      
+      /* Editor container defines the visible box */
+      #editor {
+        min-height: 18vh;
+        max-height: calc(70vh - 120px);
+        padding: 14px;
+        box-sizing: border-box;
+        overflow: hidden;       /* inner .ProseMirror will scroll */
+        font-size:20px;
+        font-family: "Noto Sans Oriya", sans-serif; /* fallback for non-editable text */
+        white-space:pre-wrap; word-wrap:break-word;
+        color: inherit;
+      }
+      
+      /* Match the look of previous textarea when empty (placeholder) */
+      #editor:empty:before{content:attr(data-placeholder); color:var(--text-muted); pointer-events:none;}
+      
+      /* The actual editable surface created by TipTap / ProseMirror.
+         Constrain it to the parent and make it scrollable. */
+      #editor .ProseMirror {
+        max-height: 100%;
+        height: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        padding: 0;              /* outer #editor already provides padding */
+        margin: 0;
+        font-family: inherit;    /* inherit Noto Sans Oriya from #editor */
+        line-height: 1.4;        /* control intra-line spacing */
+        white-space: normal;     /* allow normal wrapping (avoid pre-wrap here) */
+        word-break: break-word;  /* avoid overflow from long words */
+        -webkit-font-smoothing: antialiased;
+        color: inherit;
+        caret-color: auto;       /* use text color for caret (or set a specific color) */
+      }
+      
+      /* CSS for misspelled decoration applied by the ProseMirror decoration */
+      span.misspelled {
+        /* make actual glyphs visible (we don't hide them) and draw underline */
+        text-decoration: none;
+        border-bottom: 1px solid rgba(220,38,38,0.55);
+        border-radius: 1px;
+        padding-bottom: 0.02em;
+        transform: translateY(0.06em);
+        -webkit-transform: translateY(0.06em);
+        text-decoration-skip-ink: none;
+      }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Odia InScript — TipTap Minimal Demo</h1>
+      <div class="controls">
+        <div class="card">Features: TipTap · minimal · copy/paste</div>
+        <button id="layoutToggle" class="layout-toggle" aria-pressed="false" title="Toggle layout (side-by-side / stacked)">
+          <span class="dot" aria-hidden="true"></span>
+          <span style="font-size:13px;">Stacked</span>
+        </button>
+      </div>
+    </header>
+
+    <section id="typingArea" class="typing-area">
+      <div class="card typing-card" style="position:relative;flex:1;min-width:160px;">
+        <!-- TipTap editor will be mounted here -->
+        <div id="editor" data-placeholder="Type here using physical keyboard or click keys. Uses Noto Sans Oriya for display."></div>
+      </div>
+
+      <div class="card kbd-wrap">
+        <div id="kbd" class="keyboard" aria-hidden="false"></div>
+        <div class="footer-note">Click keys or use your physical keyboard. Arrow keys move focus when keyboard widget focused.</div>
+      </div>
+    </section>
+
+    <!-- keymap JSON (unchanged) -->
+    <script id="keymap" type="application/json">
+{ "Backquote": { "normal": "॰", "shift": "ॐ" },
+  "Digit1": { "normal": "୧", "shift": "!" },
+  "Digit2": { "normal": "୨", "shift": "@" },
+  "Digit3": { "normal": "୩", "shift": "୍ର" },
+  "Digit4": { "normal": "୪", "shift": "ର୍" },
+  "Digit5": { "normal": "୫", "shift": "ଜ୍ଞ" },
+  "Digit6": { "normal": "୬", "shift": "ତ୍ର" },
+  "Digit7": { "normal": "୭", "shift": "କ୍ଷ" },
+  "Digit8": { "normal": "୮", "shift": "ଶ୍ର" },
+  "Digit9": { "normal": "୯", "shift": "(" },
+  "Digit0": { "normal": "୦", "shift": ")" },
+  "Minus": { "normal": "-", "shift": "ଃ" },
+  "Equal": { "normal": "ୃ", "shift": "ଋ" },
+
+  "KeyQ": { "normal": "ୌ", "shift": "ଔ" },
+  "KeyW": { "normal": "ୈ", "shift": "ଐ" },
+  "KeyE": { "normal": "ା", "shift": "ଆ" },
+  "KeyR": { "normal": "ୀ", "shift": "ଈ" },
+  "KeyT": { "normal": "ୂ", "shift": "ଊ" },
+  "KeyY": { "normal": "ବ", "shift": "ଭ" },
+  "KeyU": { "normal": "ହ", "shift": "ଙ" },
+  "KeyI": { "normal": "ଗ", "shift": "ଘ" },
+  "KeyO": { "normal": "ଦ", "shift": "ଧ" },
+  "KeyP": { "normal": "ଜ", "shift": "ଝ" },
+  "BracketLeft": { "normal": "ଡ", "shift": "ଢ" },
+  "BracketRight": { "normal": "଼", "shift": "ଞ" },
+  "Backslash": { "normal": "\\", "shift": "" },
+
+  "Tab": { "normal": "    ", "shift": "    " },
+
+  "KeyA": { "normal": "ୋ", "shift": "ଓ" },
+  "KeyS": { "normal": "େ", "shift": "ଏ" },
+  "KeyD": { "normal": "୍", "shift": "ଅ" },
+  "KeyF": { "normal": "ି", "shift": "ଇ" },
+  "KeyG": { "normal": "ୁ", "shift": "ଉ" },
+  "KeyH": { "normal": "ପ", "shift": "ଫ" },
+  "KeyJ": { "normal": "ର", "shift": "" },
+  "KeyK": { "normal": "କ", "shift": "ଖ" },
+  "KeyL": { "normal": "ତ", "shift": "ଥ" },
+  "Semicolon": { "normal": "ଚ", "shift": "ଛ" },
+  "Quote": { "normal": "ଟ", "shift": "ଠ" },
+
+  "Enter": { "normal": "\n", "shift": "\n" },
+  "CapsLock": { "normal": null, "shift": null },
+  "ShiftLeft": { "normal": null, "shift": null },
+
+  "KeyZ": { "normal": "", "shift": "" },
+  "KeyX": { "normal": "ଂ", "shift": "ଁ" },
+  "KeyC": { "normal": "ମ", "shift": "ଣ" },
+  "KeyV": { "normal": "ନ", "shift": "" },
+  "KeyB": { "normal": "", "shift": "" },
+  "KeyN": { "normal": "ଲ", "shift": "ଳ" },
+  "KeyM": { "normal": "ସ", "shift": "ଶ" },
+  "Comma": { "normal": ",", "shift": "ଷ" },
+  "Period": { "normal": "।", "shift": "." },
+  "Slash": { "normal": "ୟ", "shift": "ଯ" },
+
+  "ShiftRight": { "normal": null, "shift": null },
+  "ControlLeft": { "normal": null, "shift": null },
+  "MetaLeft": { "normal": null, "shift": null },
+  "AltLeft": { "normal": null, "shift": null },
+  "Space": { "normal": " ", "shift": " " },
+  "AltRight": { "normal": null, "shift": null },
+  "MetaRight": { "normal": null, "shift": null },
+  "ContextMenu": { "normal": null, "shift": null },
+  "ControlRight": { "normal": null, "shift": null }
+}
+    </script>
+
+    <!-- TipTap + ProseMirror via esm.sh. We use a few small core extensions (document, paragraph, text). -->
+    <script type="module">
+      // Imports (CDN esm.sh)
+      import { Editor } from 'https://esm.sh/@tiptap/core';
+      import Document from 'https://esm.sh/@tiptap/extension-document';
+      import Paragraph from 'https://esm.sh/@tiptap/extension-paragraph';
+      import Text from 'https://esm.sh/@tiptap/extension-text';
+      import HardBreak from 'https://esm.sh/@tiptap/extension-hard-break';
+
+      // ProseMirror building blocks (from @tiptap/pm)
+      import { Plugin, PluginKey } from 'https://esm.sh/@tiptap/pm/state';
+      import { Decoration, DecorationSet } from 'https://esm.sh/@tiptap/pm/view';
+
+      /********** Bloom loading & hash functions (exactly your implementation) **********/
+      // MurmurHash3 / UTF-8 encoding / base64 etc — same code as your original (keeps compatibility)
+      function murmurhash3_32_bytes(bytesU8, seed = 0) {
+        const c1 = 0xcc9e2d51 >>> 0;
+        const c2 = 0x1b873593 >>> 0;
+        let h1 = seed >>> 0;
+        const len = bytesU8.length;
+        const nblocks = Math.floor(len / 4);
+
+        for (let i = 0; i < nblocks; i++) {
+          const i4 = i * 4;
+          let k1 = (bytesU8[i4] & 0xff) |
+                   ((bytesU8[i4 + 1] & 0xff) << 8) |
+                   ((bytesU8[i4 + 2] & 0xff) << 16) |
+                   ((bytesU8[i4 + 3] & 0xff) << 24);
+          k1 = Math.imul(k1, c1) >>> 0;
+          k1 = (k1 << 15) | (k1 >>> 17);
+          k1 = Math.imul(k1, c2) >>> 0;
+
+          h1 ^= k1;
+          h1 = (h1 << 13) | (h1 >>> 19);
+          h1 = (Math.imul(h1, 5) + 0xe6546b64) >>> 0;
+        }
+
+        let k1 = 0;
+        const tailIndex = nblocks * 4;
+        switch (len & 3) {
+          case 3: k1 ^= (bytesU8[tailIndex + 2] & 0xff) << 16;
+          case 2: k1 ^= (bytesU8[tailIndex + 1] & 0xff) << 8;
+          case 1:
+            k1 ^= (bytesU8[tailIndex] & 0xff);
+            k1 = Math.imul(k1, c1) >>> 0;
+            k1 = (k1 << 15) | (k1 >>> 17);
+            k1 = Math.imul(k1, c2) >>> 0;
+            h1 ^= k1;
+        }
+
+        h1 ^= len;
+        h1 ^= h1 >>> 16;
+        h1 = Math.imul(h1, 0x85ebca6b) >>> 0;
+        h1 ^= h1 >>> 13;
+        h1 = Math.imul(h1, 0xc2b2ae35) >>> 0;
+        h1 ^= h1 >>> 16;
+        return h1 >>> 0;
+      }
+      function murmurhash3_32_for_string(str, seed = 0) {
+        if (typeof str.normalize === 'function') str = str.normalize('NFC');
+        const enc = new TextEncoder();
+        const bytes = enc.encode(String(str));
+        return murmurhash3_32_bytes(bytes, seed);
+      }
+      function base64ToBytes(b64) {
+        const bin = atob(b64);
+        const len = bin.length;
+        const arr = new Uint8Array(len);
+        for (let i = 0; i < len; i++) arr[i] = bin.charCodeAt(i);
+        return arr;
+      }
+      function makeAccessor(bytesU8, m) {
+        const bytes = bytesU8 || new Uint8Array(0);
+        return {
+          m, bytes,
+          getBit(idx) {
+            if (idx < 0 || idx >= m) return 0;
+            const byteIndex = (idx / 8) | 0;
+            const bitInByte = idx % 8;
+            const b = bytes[byteIndex] || 0;
+            const mask = 1 << (7 - bitInByte); // MSB-first
+            return (b & mask) ? 1 : 0;
+          }
+        };
+      }
+      function bloomPositions_seeded(word, m, k) {
+        const out = new Array(k);
+        const w = (typeof word.normalize === 'function') ? word.normalize('NFC') : word;
+        for (let seed = 0; seed < k; seed++) {
+          out[seed] = (murmurhash3_32_for_string(w, seed) >>> 0) % m;
+        }
+        return out;
+      }
+      async function loadBloom(url) {
+        const resp = await fetch(url, { cache: 'no-store' });
+        if (!resp.ok) throw new Error('fetch failed ' + resp.status);
+        const j = await resp.json();
+        const m = Number(j.m || 0);
+        const k = Number(j.k || 0);
+        let bytes = new Uint8Array(0);
+        if (j.bits_b64) {
+          bytes = base64ToBytes(j.bits_b64);
+        } else if (Array.isArray(j.data)) {
+          bytes = new Uint8Array(j.data);
+        } else if (Array.isArray(j.bytes)) {
+          bytes = new Uint8Array(j.bytes);
+        } else if (j.bitset && typeof j.bitset === 'string') {
+          const s = j.bitset.trim();
+          if (/^[0-9a-fA-F]+$/.test(s) && s.length % 2 === 0) {
+            const out = new Uint8Array(s.length / 2);
+            for (let i = 0; i < out.length; i++) out[i] = parseInt(s.substr(i*2,2),16);
+            bytes = out;
+          } else {
+            bytes = base64ToBytes(s);
+          }
+        }
+        const accessor = makeAccessor(bytes, m);
+        return { meta: j, m, k, bytes, accessor };
+      }
+      function checkTokenWithBloom(token, bloom) {
+        if (!bloom) return true;
+        if (!token || !token.trim()) return true;
+        if (typeof token.normalize === 'function') token = token.normalize('NFC');
+        const { m, k, accessor } = bloom;
+        const positions = bloomPositions_seeded(token, m, k);
+        const present = positions.every(p => accessor.getBit(p) === 1);
+        return present;
+      }
+
+      /********** Spellcheck extension (ProseMirror plugin) **********/
+      // This extension creates an inline decoration (span.misspelled) for tokens that bloom says are absent.
+      function spellcheckPlugin(bloom) {
+        return new Plugin({
+          key: new PluginKey('odiaSpellcheck'),
+          props: {
+            decorations(state) {
+              const decorations = [];
+              const re = /\S+/g;
+
+              // iterate all text nodes and find tokens inside each text node
+              state.doc.descendants((node, pos) => {
+                if (node.isText) {
+                  const text = node.text || '';
+                  let m;
+                  while ((m = re.exec(text)) !== null) {
+                    const token = m[0];
+                    const from = pos + m.index;
+                    const to = from + token.length;
+                    // check bloom: if NOT present, add decoration
+                    const present = checkTokenWithBloom(token, bloom);
+                    if (!present) {
+                      decorations.push( Decoration.inline(from, to, { class: 'misspelled' }) );
+                    }
+                  }
+                }
+              });
+
+              if (decorations.length === 0) return DecorationSet.empty;
+              return DecorationSet.create(state.doc, decorations);
+            }
+          }
+        });
+      }
+
+      /********** Editor initialization after bloom load **********/
+      // Keep references globally for keyboard script to use
+      window.__odia_editor = null;
+
+      async function initEditorAndKeyboard() {
+        // load bloom JSON
+        let bloom = null;
+        try {
+          bloom = await loadBloom('odia_bloom.json');
+          window.__od_bloom = bloom; // debugging access
+          console.info('Bloom loaded:', { m: bloom.m, k: bloom.k, bytes: bloom.bytes.length });
+        } catch (err) {
+          console.warn('Failed to load bloom:', err);
+        }
+
+        // create the editor
+        const editor = new Editor({
+          element: document.querySelector('#editor'),
+          extensions: [
+            Document,
+            Paragraph,
+            Text,
+            HardBreak,
+            // add a lightweight extension that registers our plugin
+            {
+              name: 'odia-spellcheck-wrapper',
+              // addProseMirrorPlugins will be called by tiptap; we return the plugin with bloom
+              addProseMirrorPlugins() {
+                return [ spellcheckPlugin(bloom) ];
+              }
+            }
+          ],
+          content: '<p></p>',
+          autofocus: true,
+          editable: true
+        });
+
+        // expose editor for keyboard script to use
+        window.__odia_editor = editor;
+
+        // small helper used by keyboard script to insert at cursor, delete etc.
+        window.__odia_insertText = function(text) {
+          if (!window.__odia_editor) return;
+          // TipTap insertContent deals with newlines as paragraphs. We want to insert raw text as typed.
+          // The easiest robust way: use ProseMirror transaction insertText via editor.view
+          const view = window.__odia_editor.view;
+          const { from, to } = view.state.selection;
+          view.dispatch(view.state.tr.insertText(String(text), from, to).scrollIntoView());
+          window.__odia_editor.view.focus();
+        };
+
+        window.__odia_deleteBeforeCaret = function() {
+          const view = window.__odia_editor.view;
+          const { from, to, empty } = view.state.selection;
+          if (!view) return;
+          if (!empty) {
+            // delete selection
+            view.dispatch(view.state.tr.delete(from, to).scrollIntoView());
+          } else if (from > 0) {
+            view.dispatch(view.state.tr.delete(from - 1, from).scrollIntoView());
+          }
+          window.__odia_editor.view.focus();
+        };
+
+        // expose a simple getPlainText method (used for debugging / tests)
+        window.__odia_getPlainText = function() {
+          return window.__odia_editor ? window.__odia_editor.getText() : '';
+        };
+
+        // render initial decorations (plugin will compute on mount)
+        // TipTap plugin decorations will update automatically as content changes.
+      }
+
+      // start editor+keyboard
+      initEditorAndKeyboard().catch(e=> { console.error('init failed', e); });
+
+      /********** Minimal keyboard rendering & wiring (keeps your visual keyboard + UX) **********/
+      // NOTE: This block is adapted from your original keyboard — changed insertion/deletion functions
+      // to call into TipTap via window.__odia_insertText / __odia_deleteBeforeCaret when available.
+      (function(){
+        const ROWS = [
+          ["Backquote","Digit1","Digit2","Digit3","Digit4","Digit5","Digit6","Digit7","Digit8","Digit9","Digit0","Minus","Equal","Backspace"],
+          ["Tab","KeyQ","KeyW","KeyE","KeyR","KeyT","KeyY","KeyU","KeyI","KeyO","KeyP","BracketLeft","BracketRight","Backslash"],
+          ["CapsLock","KeyA","KeyS","KeyD","KeyF","KeyG","KeyH","KeyJ","KeyK","KeyL","Semicolon","Quote","Enter"],
+          ["ShiftLeft","KeyZ","KeyX","KeyC","KeyV","KeyB","KeyN","KeyM","Comma","Period","Slash","ShiftRight"],
+          ["Space"]
+        ];
+
+        const keymapEl = document.getElementById('keymap');
+        let KEYMAP = {};
+        try { KEYMAP = JSON.parse(keymapEl.textContent); } catch (e){ console.error('keymap parse', e); }
+
+        const kbdContainer = document.getElementById('kbd');
+        const typingArea = document.getElementById('typingArea');
+        const layoutToggle = document.getElementById('layoutToggle');
+
+        function codeToLabel(code){
+          const lbl = { Backspace: '⌫', Tab: 'Tab', Enter: '⏎', CapsLock: 'Caps', ShiftLeft: 'Shift', ShiftRight: 'Shift', Space: 'Space', ControlLeft: 'Ctrl', ControlRight: 'Ctrl', AltLeft: 'Alt', AltRight: 'Alt', MetaLeft: 'Meta', MetaRight: 'Meta' };
+          return lbl[code] || (code.startsWith('Key') ? code.slice(3) : (code.startsWith('Digit') ? code.slice(5) : code));
+        }
+        function createSVGIcon(name){
+          if (name === 'Backspace'){
+            return `<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 3H7a2 2 0 0 0-1.6.8L1 12l4.4 8.2A2 2 0 0 0 7 21h15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM10.6 16.6 9.2 15.2 11.4 13l-2.2-2.2 1.4-1.4L12.8 11l2.2-2.2 1.4 1.4L14.2 12l2.2 2.2-1.4 1.4L12.8 13.4z"/></svg>`;
+          }
+          return '';
+        }
+
+        function createKey(code){
+          const defs = Object.prototype.hasOwnProperty.call(KEYMAP, code) ? KEYMAP[code] : { normal: '', shift: '' };
+          const key = document.createElement('button');
+          key.type = 'button';
+          key.className = 'k';
+          key.dataset.code = code;
+          key.setAttribute('role','button');
+          key.tabIndex = 0;
+          key.setAttribute('aria-label', defs.normal || codeToLabel(code));
+          if (code === 'Space') key.classList.add('space');
+          if (['Backspace','Enter','Tab','CapsLock','ShiftLeft','ShiftRight','ControlLeft','ControlRight','MetaLeft','MetaRight','AltLeft','AltRight'].includes(code)) key.classList.add('wide');
+          const top = document.createElement('div'); top.className = 'top' + (defs.shift ? '' : ' empty'); top.textContent = defs.shift || '';
+          const center = document.createElement('div'); center.className = 'center';
+          const asciiFallback = { Backquote: "`", Semicolon: ";", Quote: "'", Comma: ",", Period: ".", Slash: "/", Backslash: "\\", Minus: "-", Equal: "=", BracketLeft: "[", BracketRight: "]" };
+          const asciiFromMap = (typeof defs.normal === 'string' && defs.normal.length === 1 && defs.normal.charCodeAt(0) < 128)
+            ? defs.normal
+            : (typeof defs.shift === 'string' && defs.shift.length === 1 && defs.shift.charCodeAt(0) < 128) ? defs.shift : null;
+          center.innerHTML = asciiFromMap || asciiFallback[code] || createSVGIcon(code) || codeToLabel(code);
+          const bottom = document.createElement('div'); bottom.className = 'bottom' + (defs.normal ? '' : ' empty'); bottom.textContent = defs.normal || '';
+          key.appendChild(top); key.appendChild(center); key.appendChild(bottom);
+          if (['Backspace','Enter','Tab','Space'].includes(code)) key.classList.add('hide-bottom');
+
+          key.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            ripple(key, ev.clientX, ev.clientY);
+            handleKeyPress(code, ev.shiftKey);
+            setKeyActive(code, true);
+            setTimeout(()=> setKeyActive(code, false), 160);
+            key.focus();
+          });
+          key.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault(); key.click();
+            } else if (['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(ev.key)) {
+              ev.preventDefault(); moveFocusByKey(key, ev.key);
+            }
+          });
+          return key;
+        }
+
+        function renderKeyboard(){
+          kbdContainer.innerHTML = '';
+          ROWS.forEach(row => {
+            const rowEl = document.createElement('div');
+            rowEl.className = 'k-row';
+            row.forEach(code => rowEl.appendChild(createKey(code)));
+            kbdContainer.appendChild(rowEl);
+          });
+        }
+
+        // insertion helpers now use TipTap editor when available
+        function insertAtRange(valueToInsert){
+          if (window.__odia_insertText) {
+            window.__odia_insertText(valueToInsert);
+          } else {
+            // fallback: clipboard-like insertion into contenteditable div (if editor not ready)
+            const el = document.querySelector('#editor');
+            // naive fallback: append text node
+            el.focus();
+            document.execCommand('insertText', false, valueToInsert);
+          }
+        }
+        function deleteBeforeCaret(){
+          if (window.__odia_deleteBeforeCaret) {
+            window.__odia_deleteBeforeCaret();
+          } else {
+            // fallback to simple backspace
+            document.execCommand('delete');
+          }
+        }
+
+        function handleKeyPress(code, withShift){
+          const defs = Object.prototype.hasOwnProperty.call(KEYMAP, code) ? KEYMAP[code] : null;
+          if (code === 'Backspace'){ deleteBeforeCaret(); return; }
+          if (code === 'Enter'){ insertAtRange('\n'); return; }
+          if (code === 'Tab'){ insertAtRange('    '); return; }
+          if (code === 'Space'){ insertAtRange(' '); return; }
+          if (!defs) return;
+          const char = withShift ? (defs.shift || defs.normal) : defs.normal;
+          if (char == null || char === '') return;
+          insertAtRange(char);
+        }
+
+        function setKeyActive(code, active){
+          const key = kbdContainer.querySelector(`.k[data-code="${code}"]`);
+          if (!key) return;
+          if (active) { key.classList.add('active'); key.classList.add('pressed'); }
+          else { key.classList.remove('active'); key.classList.remove('pressed'); }
+        }
+
+        function ripple(el, clientX, clientY){
+          const r = document.createElement('span'); r.className = 'ripple';
+          const rect = el.getBoundingClientRect();
+          const lx = clientX || (rect.left + rect.width/2);
+          const ly = clientY || (rect.top + rect.height/2);
+          r.style.left = (lx - rect.left) + 'px'; r.style.top = (ly - rect.top) + 'px';
+          const size = Math.max(rect.width, rect.height) + 'px'; r.style.width = r.style.height = size;
+          el.appendChild(r);
+          requestAnimationFrame(()=> r.classList.add('show'));
+          setTimeout(()=> r.remove(),500);
+        }
+
+        // physical keyboard handlers: intercept mapped keys and dispatch via our insert/delete helpers
+        function physicalKeydownHandler(e){
+          if (e.ctrlKey || e.metaKey) return;
+          const code = e.code;
+          if (KEYMAP[code] && KEYMAP[code].normal !== null){
+            e.preventDefault();
+            const withShift = e.shiftKey;
+            handleKeyPress(code, withShift);
+            setKeyActive(code, true);
+            const keyEl = kbdContainer.querySelector(`.k[data-code="${code}"]`);
+            if (keyEl) ripple(keyEl, 0, 0);
+          } else {
+            if (code === 'Backspace'){
+              e.preventDefault(); deleteBeforeCaret(); setKeyActive(code,true);
+            }
+            // allow other browser keys (arrows, etc.) to be handled by the editor if it has focus
+          }
+        }
+        function physicalKeyupHandler(e){ const code = e.code; setKeyActive(code,false); }
+
+        function focusEditor(){ // focus tiptap editor when possible
+          const el = document.querySelector('#editor');
+          el && el.focus();
+        }
+
+        function moveFocusByKey(currentKey, arrow){
+          const all = Array.from(kbdContainer.querySelectorAll('.k'));
+          const i = all.indexOf(currentKey); if (i === -1) return;
+          const rows = Array.from(kbdContainer.querySelectorAll('.k-row')).map(r => Array.from(r.querySelectorAll('.k')));
+          let found = null; let rIndex=-1,cIndex=-1;
+          for (let r=0;r<rows.length;r++){ for (let c=0;c<rows[r].length;c++){ if (rows[r][c] === currentKey){ rIndex=r; cIndex=c; found=true; break; } } if (found) break; }
+          if (found){ let target=null; if (arrow==='ArrowLeft') target = rows[rIndex][Math.max(0,cIndex-1)];
+            if (arrow==='ArrowRight') target = rows[rIndex][Math.min(rows[rIndex].length-1,cIndex+1)];
+            if (arrow==='ArrowUp') target = (rows[rIndex-1]||[])[Math.min(cIndex, (rows[rIndex-1]||[]).length-1)];
+            if (arrow==='ArrowDown') target = (rows[rIndex+1]||[])[Math.min(cIndex, (rows[rIndex+1]||[]).length-1)];
+            if (target) target.focus();
+          }
+        }
+
+        function applyLayout(mode){
+          if (mode === 'stacked'){
+            typingArea.classList.add('stacked');
+            layoutToggle.setAttribute('aria-pressed','true');
+            layoutToggle.querySelector('span:last-child').textContent = 'Stacked';
+          } else {
+            typingArea.classList.remove('stacked');
+            layoutToggle.setAttribute('aria-pressed','false');
+            layoutToggle.querySelector('span:last-child').textContent = 'Side-by-side';
+          }
+          try { localStorage.setItem('odiatyping_layout', mode); } catch(e){}
+        }
+        layoutToggle.addEventListener('click', ()=>{
+          const isPressed = layoutToggle.getAttribute('aria-pressed') === 'true';
+          applyLayout(isPressed ? 'side' : 'stacked');
+        });
+
+        function bindEvents(){
+          document.addEventListener('keydown', (e)=>{ physicalKeydownHandler(e); });
+          document.addEventListener('keyup', (e)=> physicalKeyupHandler(e));
+          kbdContainer.addEventListener('mousedown', (e)=>{ e.preventDefault(); focusEditor(); });
+        }
+
+        function init(){
+          renderKeyboard();
+          bindEvents();
+          const pref = (function(){ try { return localStorage.getItem('odiatyping_layout'); } catch(e) { return null; } })();
+          applyLayout(pref === 'stacked' ? 'stacked' : 'side');
+          window.addEventListener('resize', ()=> { if (window.innerWidth < 640) applyLayout('stacked'); });
+        }
+        init();
+      })();
+    </script>
+
+  </main>
+</body>
+</html>

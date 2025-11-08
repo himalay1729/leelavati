@@ -1,41 +1,63 @@
+/* Scoped + copy-proofed styles for the Current Issue block */
 .current-issue {
   padding: 2rem 1rem;
+  box-sizing: border-box;
 }
 
-.current-issue-content {
+/* Layout wrapper */
+.current-issue .current-issue-content {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;        /* slightly tighter gap for better rhythm */
   flex-wrap: wrap;
   align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.left {
-  flex: 1;
-  min-width: 280px;
+/* Columns — scoped so these don't collide with other pages */
+.current-issue .left,
+.current-issue .right {
+  box-sizing: border-box;
+  min-width: 0;       /* critical: allow children to shrink inside flex items */
 }
 
-.right {
-  flex: 0.8;
+/* Left column: flexible, but doesn't force overflow */
+.current-issue .left {
+  flex: 1 1 0;        /* equal-share, grow & shrink */
+  min-width: 280px;   /* prevents collapsing too small on narrow screens */
+}
+
+/* Right column: slightly smaller default share, centered content */
+.current-issue .right {
+  flex: 0.8 1 0;
   text-align: center;
 }
 
-.cover-img {
-  max-width: 100%;
+/* Images inside this block */
+.current-issue .cover-img {
+  width: 100%;
+  height: auto;
+  display: block;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;  /* safe if you later set a fixed height */
+  max-width: 100%;
 }
 
-.meta {
+/* Meta text */
+.current-issue .meta {
   color: #64748b;
   margin-bottom: 1rem;
 }
 
-.left ul {
+/* List styles scoped to left column */
+.current-issue .left ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.left ul li {
+.current-issue .left ul li {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
@@ -44,9 +66,11 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
-.view-issue-btn {
+/* CTA button (scoped) */
+.current-issue .view-issue-btn {
   display: inline-block;
   margin-top: 1.25rem;
   background-color: #2f6dfc;
@@ -57,21 +81,23 @@
   transition: background 0.2s;
 }
 
-.view-issue-btn:hover {
+.current-issue .view-issue-btn:hover {
   background-color: #1f56d8;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .current-issue-content {
+  .current-issue .current-issue-content {
     flex-direction: column;
+    gap: 1rem;
   }
 
-  .right {
+  .current-issue .right {
     order: -1;
     margin-bottom: 1rem;
   }
 
-  .view-issue-btn {
+  .current-issue .view-issue-btn {
     width: 100%;
     text-align: center;
   }
