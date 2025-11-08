@@ -37,10 +37,9 @@ const Home = () => {
 
   return (
     <section className="home page-container">
-      <h1>Welcome to Leelavati</h1>
-<p className="tagline">
-In the spirit of Bhāskara’s Leelavati -- where every problem tells a story -- a journey through the wonders of mathematics.
-</p>
+<h2 className="tagline">
+In the spirit of Bhāskara’s Leelavati -- a journey through the wonders of mathematics -- where every problem tells a story.
+</h2>
 
 <h1>Current Issue</h1>
 

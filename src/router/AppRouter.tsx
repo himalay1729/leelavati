@@ -16,7 +16,7 @@ function AppRouter() {
   return (
     <Router>
       <Header />
-      <CompanyHeaderMark />
+      {/*<CompanyHeaderMark /> */}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
