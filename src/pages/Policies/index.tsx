@@ -1,24 +1,25 @@
+import React from "react";
 import "./policies.css";
+import { useTranslation } from "react-i18next";
 
-const Policies = () => (
-  <div className="page-container policies-page">
-    <h1>Editorial & Privacy Policies</h1>
-    <section>
-      <h2>Privacy Policy</h2>
-      <p>
-        We respect the privacy of all our contributors and readers. Personal
-        data collected is used solely for communication and publication
-        purposes.
-      </p>
-    </section>
-    <section>
-      <h2>Editorial Policy</h2>
-      <p>
-        All submissions undergo peer review. The editorial team ensures that
-        articles meet the highest academic standards before publication.
-      </p>
-    </section>
-  </div>
-);
+const Policies: React.FC = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="page-container policies-page">
+      <h1>{t("policies.title")}</h1>
+
+      <section>
+        <h2>{t("policies.privacyTitle")}</h2>
+        <p>{t("policies.privacyText")}</p>
+      </section>
+
+      <section>
+        <h2>{t("policies.editorialTitle")}</h2>
+        <p>{t("policies.editorialText")}</p>
+      </section>
+    </div>
+  );
+};
 
 export default Policies;

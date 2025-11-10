@@ -1,6 +1,7 @@
 import React from "react";
 import "./editors.css";
 import { useEditors, type Editor } from "../../hooks/useEditors";
+import { useTranslation } from "react-i18next";
 
 const getInitials = (name: string) =>
   name
@@ -11,14 +12,14 @@ const getInitials = (name: string) =>
     .toUpperCase();
 
 const EditorialBoard: React.FC = () => {
-  // Pass a custom URL if you host it elsewhere: useEditors("/api/editors")
   const { editors, loading, error } = useEditors();
+  const { t } = useTranslation();
 
   if (loading) {
     return (
       <main className="editorial-page page-container" aria-labelledby="editorial-title">
-        <h1 id="editorial-title">Editorial Board</h1>
-        <p className="lead">Loading editors…</p>
+        <h1 id="editorial-title">{t("editors.title")}</h1>
+        <p className="lead">{t("common.loading")}</p>
       </main>
     );
   }
@@ -26,22 +27,17 @@ const EditorialBoard: React.FC = () => {
   if (error) {
     return (
       <main className="editorial-page page-container" aria-labelledby="editorial-title">
-        <h1 id="editorial-title">Editorial Board</h1>
-        <p className="lead">Failed to load editors: {error}</p>
+        <h1 id="editorial-title">{t("editors.title")}</h1>
+        <p className="lead">{t("common.errorLoadingEditors", { error })}</p>
       </main>
     );
   }
 
   return (
     <main className="editorial-page page-container" aria-labelledby="editorial-title">
-      <h1 id="editorial-title">Editorial Board</h1>
+      <h1 id="editorial-title">{t("editors.title")}</h1>
 
-      <p className="lead">
-        The editorial board of Leelavati comprises scholars, educators and practitioners
-        dedicated to promoting mathematical thinking among students and teachers.
-        Below are the current editors, their roles and brief descriptions of their
-        expertise or responsibilities.
-      </p>
+      <p className="lead">{t("editors.description")}</p>
 
       <div className="editor-grid" role="list">
         {editors.map((ed: Editor) => (
@@ -71,8 +67,12 @@ const EditorialBoard: React.FC = () => {
       </div>
 
       <div className="actions" aria-hidden={false}>
-        <a className="btn-primary" href="/issues/current">View Current Issue</a>
-        <a className="btn-secondary" href="/for-authors">Submission Guidelines</a>
+        <a className="btn-primary" href="/issues/current">
+          {t("editors.viewCurrentIssue")}
+        </a>
+        <a className="btn-secondary" href="/for-authors">
+          {t("editors.submissionGuidelines")}
+        </a>
       </div>
     </main>
   );

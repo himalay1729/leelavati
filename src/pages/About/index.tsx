@@ -1,9 +1,9 @@
-// src/pages/about/index.tsx
 import React from "react";
 import { Link } from "react-router-dom";
 import "./about.css";
 import "./editors.css";
 import { useEditors, type Editor } from "../../hooks/useEditors";
+import { useTranslation } from "react-i18next";
 
 const getInitials = (name: string) =>
   name
@@ -14,37 +14,22 @@ const getInitials = (name: string) =>
     .toUpperCase();
 
 const About: React.FC = () => {
-  // Fetch editors from /data/editors.json or your API
   const { editors, loading, error } = useEditors();
+  const { t } = useTranslation();
 
   return (
     <section className="about-page page-container">
-      <h1>Welcome to Leelavati</h1>
+      <h1>{t("about.title")}</h1>
 
-      <p className="left-align">
-        Mathematics is not just a collection of formulas—it is a way of thinking, a
-        language for patterns, and a bridge between imagination and logic. Leelavati
-        invites you to explore this world in all its depth and delight. Through
-        stories of great mathematicians, explorations of ancient and modern ideas,
-        and engaging problems that spark curiosity, we aim to bring mathematics to
-        life for students and teachers alike. Whether you are discovering the
-        elegance of geometry for the first time, tracing the history of numbers
-        through time, or puzzling over a clever problem, Leelavati is your
-        companion in learning and wonder.
-      </p>
-
-      <p className="left-align">
-        Come read, think, and play with ideas. Let the spirit of curiosity guide
-        you—just as it has guided mathematicians for centuries.
-      </p>
-
+      <p className="left-align">{t("about.intro1")}</p>
+      <p className="left-align">{t("about.intro2")}</p>
 
       <div className="actions">
         <Link to="/current-issue" className="btn-primary">
-          View Current Issue
+          {t("about.viewCurrentIssue")}
         </Link>
         <Link to="/archives" className="btn-secondary">
-          Browse Archives
+          {t("about.browseArchives")}
         </Link>
       </div>
 
@@ -53,20 +38,23 @@ const About: React.FC = () => {
         aria-labelledby="editors-title"
         style={{ marginTop: "2rem" }}
       >
-        <h2 id="editors-title">Editorial Board</h2>
+        <h2 id="editors-title">{t("about.editorialBoardTitle")}</h2>
 
-        <p className="lead">
-          The editorial board curates content, guides editorial policy, and supports
-          our mission to foster mathematical thinking in students and teachers.
-        </p>
+        <p className="lead">{t("about.editorialBoardDescription")}</p>
 
         {loading ? (
-          <p>Loading editors…</p>
+          <p>{t("common.loading")}</p>
         ) : error ? (
-          <p style={{ color: "crimson" }}>Failed to load editors: {error}</p>
+          <p style={{ color: "crimson" }}>
+            {t("common.errorLoadingEditors", { error })}
+          </p>
         ) : (
           <>
-            <div className="editor-grid" role="list" aria-label="Editorial board members">
+            <div
+              className="editor-grid"
+              role="list"
+              aria-label={t("about.editorialBoardAriaLabel")}
+            >
               {editors.map((ed: Editor) => (
                 <article className="editor-card" role="listitem" key={ed.name}>
                   {ed.photoUrl ? (
@@ -96,32 +84,19 @@ const About: React.FC = () => {
               ))}
             </div>
 
-
-	<div className="actions" aria-hidden={false}>
-        <a className="btn-primary" href="/for-authors">Submission Guidelines</a>
-        </div>
+            <div className="actions" aria-hidden={false}>
+              <a className="btn-primary" href="/for-authors">
+                {t("about.submissionGuidelines")}
+              </a>
+            </div>
           </>
         )}
       </section>
 
-      <h1>A brief history of Leelavati</h1>
+      <h1>{t("about.historyTitle")}</h1>
 
-      <p className="left-align">
-        Mathematics is not just a collection of formulas—it is a way of thinking, a
-        language for patterns, and a bridge between imagination and logic. Leelavati
-        invites you to explore this world in all its depth and delight. Through
-        stories of great mathematicians, explorations of ancient and modern ideas,
-        and engaging problems that spark curiosity, we aim to bring mathematics to
-        life for students and teachers alike. Whether you are discovering the
-        elegance of geometry for the first time, tracing the history of numbers
-        through time, or puzzling over a clever problem, Leelavati is your
-        companion in learning and wonder.
-      </p>
-
-      <p className="left-align">
-        Come read, think, and play with ideas. Let the spirit of curiosity guide
-        you—just as it has guided mathematicians for centuries.
-      </p>
+      <p className="left-align">{t("about.history1")}</p>
+      <p className="left-align">{t("about.history2")}</p>
     </section>
   );
 };

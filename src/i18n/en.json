@@ -1,0 +1,67 @@
+{
+  "about": {
+    "title": "Welcome to Leelavati",
+    "intro1": "Mathematics is not just a collection of formulas—it is a way of thinking, a language for patterns, and a bridge between imagination and logic. Leelavati invites you to explore this world in all its depth and delight. Through stories of great mathematicians, explorations of ancient and modern ideas, and engaging problems that spark curiosity, we aim to bring mathematics to life for students and teachers alike. Whether you are discovering the elegance of geometry for the first time, tracing the history of numbers through time, or puzzling over a clever problem, Leelavati is your companion in learning and wonder.",
+    "intro2": "Come read, think, and play with ideas. Let the spirit of curiosity guide you—just as it has guided mathematicians for centuries.",
+    "viewCurrentIssue": "View Current Issue",
+    "browseArchives": "Browse Archives",
+    "editorialBoardTitle": "Editorial Board",
+    "editorialBoardDescription": "The editorial board curates content, guides editorial policy, and supports our mission to foster mathematical thinking in students and teachers.",
+    "editorialBoardAriaLabel": "Editorial board members",
+    "submissionGuidelines": "Submission Guidelines",
+    "historyTitle": "A Brief History of Leelavati",
+    "history1": "Leelavati, named after the celebrated mathematical treatise of Bhāskara II, stands as a bridge between the ancient tradition of reasoning and the modern world of discovery. Through this magazine, we seek to cultivate a love for mathematics in learners of all ages.",
+    "history2": "Come read, think, and play with ideas. Let curiosity guide you, as it has guided mathematicians for centuries."
+  },
+  "editors": {
+    "title": "Editorial Board",
+    "description": "The editorial board of Leelavati comprises scholars, educators, and practitioners dedicated to promoting mathematical thinking among students and teachers. Below are the current editors, their roles, and brief descriptions of their expertise or responsibilities.",
+    "viewCurrentIssue": "View Current Issue",
+    "submissionGuidelines": "Submission Guidelines"
+  },
+  "forAuthors": {
+    "title": "For Authors",
+    "intro": "Leelavati welcomes clear, well-written submissions on mathematics education, the history of mathematics, problem solving, and original student-friendly expositions.",
+    "scopeTitle": "Scope of the Journal",
+    "scopeDescription": "Leelavati publishes articles aimed at school students and teachers: expository pieces, problem sets, historical essays, classroom activities, and short research notes that are accessible at the school level.",
+    "guidelines": {
+      "length": "Article length: typically 1000–3000 words depending on content.",
+      "resources": "Problem sets and teacher resources are welcome.",
+      "originality": "Submitted material should be original and not under consideration elsewhere."
+    },
+    "latexTitle": "Manuscript preparation & LaTeX style",
+    "latexIntro": "We prefer submissions in LaTeX. Use the Leelavati style file to format your paper; it sets margins, fonts, title layout, and bibliography style.",
+    "downloadSty": "Download leelavati.sty",
+    "styNote": "Place the .sty file in your project root or upload it with your submission.",
+    "quickInstructionsTitle": "Quick instructions",
+    "quickInstructions": {
+      "step1": "Compile with xelatex or lualatex (fontspec-compatible compilers).",
+      "step2": "Include the style at the top of your document: \\usepackage{leelavati}",
+      "step3": "References: use BibTeX/BibLaTeX as directed by the style file (APA-like formatting)."
+    },
+    "odiaTitle": "Typesetting Odia (ଓଡ଼ିଆ) with LaTeX",
+    "odiaIntro": "For Odia text, use XeLaTeX or LuaLaTeX. Use fontspec together with polyglossia (or babel) to select the Odia font and language. A good Odia font is Noto Sans Oriya.",
+    "odiaExampleTitle": "Minimal Odia XeLaTeX example",
+    "notesTitle": "Notes:",
+    "notes": {
+      "fontInstall": "Make sure the Odia/OpenType font is installed locally or added to your Overleaf project.",
+      "compile": "fontspec + polyglossia require compiling with XeLaTeX or LuaLaTeX.",
+      "fontIssues": "If you face shaping or diacritic issues, try alternative Odia fonts such as Noto Sans Oriya."
+    },
+    "advancedSetup": "For advanced bilingual setups (mixing math, English, and Odia), authors can assign separate fonts for Latin and Odia scripts so math remains unaffected.",
+    "odiaDemo": "Odia InScript Demo",
+    "submissionTitle": "Submission",
+    "submissionDetails": "Submit manuscripts as a zip containing source <code>.tex</code>, the <code>.bib</code> file, fonts, images, and a PDF output to <a href='mailto:{{email}}'>{{email}}</a>."
+  },
+  "policies": {
+    "title": "Editorial & Privacy Policies",
+    "privacyTitle": "Privacy Policy",
+    "privacyText": "We respect the privacy of all our contributors and readers. Personal data collected is used solely for communication and publication purposes.",
+    "editorialTitle": "Editorial Policy",
+    "editorialText": "All submissions undergo peer review. The editorial team ensures that articles meet the highest academic standards before publication."
+  },
+  "common": {
+    "loading": "Loading…",
+    "errorLoadingEditors": "Failed to load editors: {{error}}"
+  }
+}
