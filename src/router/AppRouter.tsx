@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import Editors from "../pages/Editors";
 import CurrentIssue from "../pages/CurrentIssue";
-import Archives from "../pages/Archives";
+import Archive from "../pages/Archive";
 import IssueDetail from "../pages/IssueDetail";
 import About from "../pages/About";
 import Policies from "../pages/Policies";
@@ -38,7 +38,7 @@ function AppRouter() {
           {/* 🌐 English routes */}
           <Route path="/" element={<Home />} />
           <Route path="/current-issue" element={<CurrentIssue />} />
-          <Route path="/archives" element={<Archives />} />
+          <Route path="/archive" element={<Archive />} />
           <Route path="/issues/:slug" element={<IssueDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/editors" element={<Editors />} />
@@ -49,7 +49,7 @@ function AppRouter() {
           {/* 🌐 Odia routes (mirror the English ones) */}
           <Route path="/or" element={<Home />} />
           <Route path="/or/current-issue" element={<CurrentIssue />} />
-          <Route path="/or/archives" element={<Archives />} />
+          <Route path="/or/archive" element={<Archive />} />
           <Route path="/or/issues/:slug" element={<IssueDetail />} />
           <Route path="/or/about" element={<About />} />
           <Route path="/or/editors" element={<Editors />} />

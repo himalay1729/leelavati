@@ -33,7 +33,7 @@ const Header = () => {
           <ul>
             {[
               ["About", "/about"],
-              ["Archives", "/archives"],
+              ["Archive", "/archive"],
               ["Subscribe", "/subscribe"],
               ["For Authors", "/for-authors"],
             ].map(([label, path]) => (

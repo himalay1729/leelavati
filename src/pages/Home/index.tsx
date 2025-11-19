@@ -47,14 +47,6 @@ In the spirit of Bhāskara’s Leelavati -- a journey through the wonders of mat
 <div className="current-issue-content">
 
 <div className="left">
-<img
-              src={currentIssue.toc}
-              alt={currentIssue.title}
-              className="cover-img"
-            />
-          </div>
-
-<div className="right">
             <img
               src={currentIssue.coverImage}
               alt={currentIssue.title}
@@ -62,6 +54,13 @@ In the spirit of Bhāskara’s Leelavati -- a journey through the wonders of mat
             />
           </div>
 
+<div className="right">
+<img
+              src={currentIssue.toc}
+              alt={currentIssue.title}
+              className="cover-img"
+            />
+          </div>
 </div>
       ) : (
         <p>No issues found.</p>
@@ -71,7 +70,7 @@ In the spirit of Bhāskara’s Leelavati -- a journey through the wonders of mat
 	  <Link to={`/issues/${currentIssue.slug}`} className="btn-primary">
               Current Issue
             </Link>
-        <Link to="/archives" className="btn-secondary">Browse Archives</Link>
+        <Link to="/archives" className="btn-primary">Archive</Link>
       </div>
     </section>
   );

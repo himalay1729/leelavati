@@ -3,6 +3,12 @@
   padding-top: 4rem;
 }
 
+.home h1 {
+  font-size: 2.5rem;    /* bigger text */
+  margin-bottom: 2rem;  /* spacing underneath */
+  font-weight: 700;     /* optional: makes it bolder */
+}
+
 .home p {
   margin-bottom: 1.2rem;
 }
@@ -17,11 +23,17 @@
   text-align: left;
 }
 
+
 .actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+
+  max-width: 1200px;      /* same as .current-issue-content */
+  margin: 1.25rem auto;   /* centers the actions block */
+  padding: 0 1rem;        /* keeps some side padding on narrow screens */
+  box-sizing: border-box; /* include padding in width */
 }
 
 .current-issue {
@@ -35,7 +47,7 @@
   align-items: flex-start;
   justify-content: center;
   margin: 0 auto;
-  max-width: 1100px;   /* limit overall width so columns are predictable */
+  max-width: 1200px;   /* limit overall width so columns are predictable */
   width: 100%;
 }
 

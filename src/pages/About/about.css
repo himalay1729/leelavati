@@ -4,6 +4,12 @@
   max-width: 800px;
 }
 
+h1 {
+  font-size: 2rem;    /* bigger text */
+  margin-bottom: 1.5rem;  /* spacing underneath */
+  font-weight: 700;     /* optional: makes it bolder */
+}
+
 .left-align {
     text-align: left;
   }

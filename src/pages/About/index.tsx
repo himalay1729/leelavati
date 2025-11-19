@@ -24,21 +24,21 @@ const About: React.FC = () => {
       <p className="left-align">{t("about.intro1")}</p>
       <p className="left-align">{t("about.intro2")}</p>
 
-      <div className="actions">
+ {/*     <div className="actions">
         <Link to="/current-issue" className="btn-primary">
-          {t("about.viewCurrentIssue")}
+          Current Issue
         </Link>
-        <Link to="/archives" className="btn-secondary">
-          {t("about.browseArchives")}
+        <Link to="/archives" className="btn-primary">
+          Archive
         </Link>
-      </div>
+      </div> */}
 
       <section
         className="about-editorial editorial-page"
         aria-labelledby="editors-title"
         style={{ marginTop: "2rem" }}
       >
-        <h2 id="editors-title">{t("about.editorialBoardTitle")}</h2>
+        <h1 id="editors-title">{t("about.editorialBoardTitle")}</h1>
 
         <p className="lead">{t("about.editorialBoardDescription")}</p>
 
@@ -84,16 +84,16 @@ const About: React.FC = () => {
               ))}
             </div>
 
-            <div className="actions" aria-hidden={false}>
+           {/* <div className="actions" aria-hidden={false}>
               <a className="btn-primary" href="/for-authors">
-                {t("about.submissionGuidelines")}
+                Submission Guidelines
               </a>
-            </div>
+            </div> */}
           </>
         )}
       </section>
 
-      <h1>{t("about.historyTitle")}</h1>
+      <h1 style={{ marginTop: "2rem" }}>{t("about.historyTitle")}</h1>
 
       <p className="left-align">{t("about.history1")}</p>
       <p className="left-align">{t("about.history2")}</p>
