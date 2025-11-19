@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./about.css";
 import "./editors.css";
 import { useEditors, type Editor } from "../../hooks/useEditors";
@@ -23,15 +22,6 @@ const About: React.FC = () => {
 
       <p className="left-align">{t("about.intro1")}</p>
       <p className="left-align">{t("about.intro2")}</p>
-
- {/*     <div className="actions">
-        <Link to="/current-issue" className="btn-primary">
-          Current Issue
-        </Link>
-        <Link to="/archives" className="btn-primary">
-          Archive
-        </Link>
-      </div> */}
 
       <section
         className="about-editorial editorial-page"
