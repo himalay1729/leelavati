@@ -7,7 +7,6 @@ import "./header.css";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { i18n } = useTranslation();
-  const location = useLocation();
 
   const isOdia = i18n.language === "or";
 
