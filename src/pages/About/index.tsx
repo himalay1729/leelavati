@@ -65,8 +65,8 @@ const About: React.FC = () => {
                     <div className="editor-name" title={ed.name}>
                       {ed.name}
                     </div>
-		    <div className="editor-name" title={ed.name} style={{ fontSize: "1.25rem" }}>
-                      {ed.odia_name}
+		    <div className="editor-name" title={ed.odianame} style={{ fontSize: "1.25rem" }}>
+                      {ed.odianame}
                     </div>
                     <div className="editor-role">{ed.role}</div>
                     <div className="editor-affiliation">{ed.affiliation}</div>

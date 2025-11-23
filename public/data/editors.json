@@ -2,7 +2,7 @@
   "editors": [
     {
       "name": "Prof. C K Mohapatra",
-      "odia_name": "ଚନ୍ଦ୍ରକିଶୋର ମହାପାତ୍ର",
+      "odianame": "ଚନ୍ଦ୍ରକିଶୋର ମହାପାତ୍ର",
       "affiliation": "IMA",
       "role": "Editor-in-Chief",
       "bio": "",
@@ -10,7 +10,7 @@
     },
     {
       "name": "Prof. Pratima Panigrahi",
-      "odia_name": "ପ୍ରତିମା ପାଣିଗ୍ରାହୀ",
+      "odianame": "ପ୍ରତିମା ପାଣିଗ୍ରାହୀ",
       "affiliation": "IIT Kharagpur",
       "role": "Editor",
       "bio": "",
@@ -18,7 +18,7 @@
     },
     {
       "name": "Prof. Soumyashant Nayak",
-      "odia_name": "ସୌମ୍ୟଶାନ୍ତ ନାୟକ",
+      "odianame": "ସୌମ୍ୟଶାନ୍ତ ନାୟକ",
       "affiliation": "ISI Bangalore",
       "role": "Associate Editor",
       "bio": "",
@@ -26,7 +26,7 @@
     },
     {
       "name": "Dr. Himalaya Senapati",
-      "odia_name": "ହିମାଳୟ ସେନାପତି",
+      "odianame": "ହିମାଳୟ ସେନାପତି",
       "affiliation": "AVP, HSBC",
       "role": "Associate Editor",
       "bio": "After a BSc, MSc and PhD in Theoretical Physics from the Chennai Mathematical Institute, Himalaya has been working in the finance industry for the last four years, initially as a Core Quant Strat at Goldman Sachs and now as a Equity Derivative Analyst at HSBC. He has also been actively involved as a teacher in various mathematics camps for school students. In his school days, from class IX to XII, Himalaya consistently ranked among the top 30 students in the country in the mathematics (IMOTC) and astronomy (OCSC Astronomy) olympiads. Additionally, in class IX, he was in the top 6 and represented India in the International Astronomy Olympiad and achieved a silver medal.",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Prof. Anup Dixit",
-      "odia_name": "ଅନୁପ ଦିକ୍ଷିତ",
+      "odianame": "ଅନୁପ ଦିକ୍ଷିତ",
       "affiliation": "IMSc, Chennai",
       "role": "Editorial Advisory Board",
       "bio": "",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Prof. Srinivas K",
-      "odia_name": "ଶ୍ରୀନିବାସ କୋଟାୟଡା",
+      "odianame": "ଶ୍ରୀନିବାସ କୋଟାୟଡା",
       "affiliation": "IISER Tirupati",
       "role": "Editorial Advisory Board",
       "bio": "",
@@ -50,7 +50,7 @@
     },
     {
       "name": "Dr. Shyam Shundar Agrawal",
-      "odia_name": "ଶ୍ୟାମ ଶୁନ୍ଦର ଅଗ୍ରୱାଲ",
+      "odianame": "ଶ୍ୟାମ ଶୁନ୍ଦର ଅଗ୍ରୱାଲ",
       "affiliation": "",
       "role": "Editorial Advisory Board",
       "bio": "",
