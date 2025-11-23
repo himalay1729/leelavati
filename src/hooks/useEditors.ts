@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export type Editor = {
   name: string;
+  odianame?: string;
   affiliation: string;
   role: string;
   bio?: string;
