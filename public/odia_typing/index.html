@@ -26,22 +26,31 @@
 html,body{height:100%;}
 body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Oriya",sans-serif;background:var(--bg);color:var(--text-primary);}
 .container{min-height:100vh;display:flex;flex-direction:column;gap:12px;padding:18px}
-.header{display:flex;align-items:center;justify-content:space-between}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
 .header h1{margin:0;font-size:20px}
 .controls{display:flex;gap:8px;align-items:center}
 .card{background:var(--panel);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(10,15,30,0.03)}
 .typing-area{display:flex;gap:12px;align-items:flex-start;overflow:visible;flex-wrap:nowrap}
 .typing-area.stacked{flex-direction:column;align-items:stretch}
 .kbd-wrap{display:flex;flex-direction:column;align-items:center;padding:8px;overflow:visible;box-sizing:border-box;width:auto;max-width:1100px;flex:0 0 auto;}
-.keyboard{display:flex;flex-direction:column;gap:8px;max-width:1100px;width:100%;}
-.k-row{display:flex;gap:10px;justify-content:center;padding:4px 6px}
+.keyboard{display:flex;flex-direction:column;gap:0px;max-width:1100px;width:100%;}
+.k-row{display:flex;gap:2px;justify-content:center;padding:2px 6px}
 .k{background:linear-gradient(180deg,var(--key-bg),#fbfdff 60%);color:var(--text-primary);border-radius:var(--key-radius);min-width:44px;height:64px;display:block;position:relative;box-sizing:border-box;border:1px solid var(--key-border);box-shadow:0 6px 18px var(--key-shadow);padding-top:8px;padding-bottom:8px;transition: transform var(--transition-quick) ease, box-shadow var(--transition-quick) ease, background var(--transition-quick) ease, color var(--transition-quick) ease;cursor:pointer;overflow:visible}
 .k:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,30,60,0.09)}
 .k.active, .k:active{transform:translateY(var(--press-translate));box-shadow:0 3px 10px rgba(10,15,30,0.08) inset, 0 2px 6px rgba(10,15,30,0.06)}
 .k:focus{outline:none;box-shadow:0 0 0 3px rgba(37,99,235,0.14);transform:translateY(-1px)}
-.k .center{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-size:11px;line-height:1;opacity:0.35;font-weight:500;color:var(--text-muted);z-index:1;pointer-events:none;user-select:none;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Oriya",sans-serif}
-.k .top{position:absolute;top:8px;font-size:11px;color:var(--text-muted);font-weight:600}
-.k .bottom{position:absolute;bottom:10px;font-size:18px;line-height:1;font-weight:700;color:var(--text-primary);-webkit-font-smoothing:antialiased;z-index:2}
+
+.k .center{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-size:11px;line-height:1;opacity:0.65;font-weight:500;color:var(--text-muted);z-index:1;pointer-events:none;user-select:none;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Oriya",sans-serif}
+
+.k .top{position:absolute;top:10px;font-size:15px;line-height:1;font-weight:700;color:var(--text-primary);-webkit-font-smoothing:antialiased;z-index:2}
+
+.k .bottom{position:absolute;bottom:10px;font-size:15px;line-height:1;font-weight:700;color:var(--text-primary);-webkit-font-smoothing:antialiased;z-index:2}
+
 .k.wide{min-width:96px;padding-left:12px;padding-right:12px}
 .k.space{min-width:320px;border-radius:18px}
 .k.small{min-width:34px;height:56px}
@@ -64,70 +73,132 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
   .k.space{min-width:140px}
 }
 .footer-note{font-size:13px;color:var(--text-muted)}
-.layout-toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:transparent;border:1px solid transparent;cursor:pointer}
-.layout-toggle[aria-pressed="true"]{background:linear-gradient(180deg,#fff,#f8fbff);box-shadow:0 6px 18px rgba(20,30,60,0.03);border-color:var(--key-border)}
-.layout-toggle .dot{width:10px;height:10px;border-radius:50%;background:var(--accent-weak);display:inline-block}
+.layout-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.layout-toggle:hover {
+  background: #1e4fc7;
+  transform: translateY(-1px);
+}
+
+.layout-toggle:active {
+  transform: translateY(1px);
+}
+
+.layout-toggle[aria-pressed="true"] {
+  background: #1e4fc7;
+}
+.layout-toggle .dot {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+}
+
 
 /* Editor card */
-.typing-card { background: #ffffff; position:relative; }
+.typing-card { 
+  background: #ffffff; 
+  position: relative; 
+}
 
-      #editor { min-height:18vh; max-height: calc(70vh - 120px); padding:14px;  font-family:"Noto Sans Oriya",sans-serif; box-sizing:border-box; border:1px solid #e6eef8; border-radius:10px; outline:none; max-width:none; overflow: hidden; white-space:pre-wrap; word-wrap:break-word; line-height:1;}
+/* Replace existing #editorContainer / .ProseMirror rules with this */
 
-      
-      /* Editor container defines the visible box */
-      #editor {
-        min-height: 18vh;
-        max-height: calc(70vh - 120px);
-        padding: 14px;
-        box-sizing: border-box;
-        overflow: hidden;       /* inner .ProseMirror will scroll */
-        font-size:20px;
-        font-family: "Noto Sans Oriya", sans-serif; /* fallback for non-editable text */
-        white-space:pre-wrap; word-wrap:break-word;
-        color: inherit;
-      }
-      
-      /* Match the look of previous textarea when empty (placeholder) */
-      #editor:empty:before{content:attr(data-placeholder); color:var(--text-muted); pointer-events:none;}
-      
-      /* The actual editable surface created by TipTap / ProseMirror.
-         Constrain it to the parent and make it scrollable. */
-      #editor .ProseMirror {
-        max-height: 100%;
-        height: auto;
-        overflow-y: auto;
-        overflow-x: hidden;
-        box-sizing: border-box;
-        padding: 0;              /* outer #editor already provides padding */
-        margin: 0;
-        font-family: inherit;    /* inherit Noto Sans Oriya from #editor */
-        line-height: 1.4;        /* control intra-line spacing */
-        white-space: normal;     /* allow normal wrapping (avoid pre-wrap here) */
-        word-break: break-word;  /* avoid overflow from long words */
-        -webkit-font-smoothing: antialiased;
-        color: inherit;
-        caret-color: auto;       /* use text color for caret (or set a specific color) */
-      }
-      
-      /* CSS for misspelled decoration applied by the ProseMirror decoration */
-      span.misspelled {
-        /* make actual glyphs visible (we don't hide them) and draw underline */
-        text-decoration: none;
-        border-bottom: 1px solid rgba(220,38,38,0.55);
-        border-radius: 1px;
-        padding-bottom: 0.02em;
-        transform: translateY(0.06em);
-        -webkit-transform: translateY(0.06em);
-        text-decoration-skip-ink: none;
-      }
+#editorContainer {
+  /* allow user to drag the vertical resize handle, but prevent content from growing it */
+  resize: vertical;        /* only vertical resizing (safer UX) */
+  height: 300px;          /* initial fixed height (change to your preference) */
+  min-height: 120px;      /* keep your current min if you want */
+  max-height: 80vh;       /* never bigger than viewport */
+  overflow: hidden;       /* hide overflowing content so inner editor can scroll */
+  border: 1px solid #e6eef8;
+  border-radius: 10px;
+  background: white;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Make the inner ProseMirror fill the container and scroll internally */
+#editorContainer > #editor,
+#editor .ProseMirror {
+  height: 100% !important;
+  max-height: 100% !important;
+  box-sizing: border-box;
+  overflow-y: auto;     /* internal scrolling for long content */
+  overflow-x: hidden;
+  padding: 8px;         /* optional: give editor padding inside the container */
+}
+
+/* Placeholder */
+#editor:empty:before {
+  content: attr(data-placeholder);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* THIS IS THE KEY - Style the .ProseMirror div directly */
+#editor .ProseMirror {
+  overflow-y: auto;                       
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  line-height: 1.5;
+  white-space: normal;
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  caret-color: auto;
+}
+
+/* Remove focus outline */
+#editor .ProseMirror:focus {
+  outline: none;
+}
+
+/* Fix paragraph spacing for better line breaks */
+#editor .ProseMirror p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+#editor .ProseMirror p + p {
+  margin-top: 0.3em;  /* Small gap between paragraphs */
+}
+
+/* Misspelled decoration */
+span.misspelled {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(220, 38, 38, 0.55);
+  border-radius: 1px;
+  padding-bottom: 0.02em;
+  transform: translateY(0.06em);
+  -webkit-transform: translateY(0.06em);
+  text-decoration-skip-ink: none;
+}
   </style>
 </head>
 <body>
   <main class="container">
     <header class="header">
-      <h1>Odia InScript — TipTap Minimal Demo</h1>
+    <div style="flex:1"></div>
       <div class="controls">
-        <div class="card">Features: TipTap · minimal · copy/paste</div>
         <button id="layoutToggle" class="layout-toggle" aria-pressed="false" title="Toggle layout (side-by-side / stacked)">
           <span class="dot" aria-hidden="true"></span>
           <span style="font-size:13px;">Stacked</span>
@@ -138,12 +209,11 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
     <section id="typingArea" class="typing-area">
       <div class="card typing-card" style="position:relative;flex:1;min-width:160px;">
         <!-- TipTap editor will be mounted here -->
-        <div id="editor" data-placeholder="Type here using physical keyboard or click keys. Uses Noto Sans Oriya for display."></div>
+        <div id="editorContainer"><div id="editor" data-placeholder="Type here..."></div></div>
       </div>
 
       <div class="card kbd-wrap">
         <div id="kbd" class="keyboard" aria-hidden="false"></div>
-        <div class="footer-note">Click keys or use your physical keyboard. Arrow keys move focus when keyboard widget focused.</div>
       </div>
     </section>
 
@@ -230,6 +300,8 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
       // ProseMirror building blocks (from @tiptap/pm)
       import { Plugin, PluginKey } from 'https://esm.sh/@tiptap/pm/state';
       import { Decoration, DecorationSet } from 'https://esm.sh/@tiptap/pm/view';
+      
+      const ODIA_SPELLCHECK_KEY = new PluginKey('odiaSpellcheck');
 
       /********** Bloom loading & hash functions (exactly your implementation) **********/
       // MurmurHash3 / UTF-8 encoding / base64 etc — same code as your original (keeps compatibility)
@@ -346,41 +418,80 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
         const present = positions.every(p => accessor.getBit(p) === 1);
         return present;
       }
+      // expose for debugging from console
+	window.checkTokenWithBloom = checkTokenWithBloom;
+	window.bloomPositions_seeded = bloomPositions_seeded; // handy too
 
-      /********** Spellcheck extension (ProseMirror plugin) **********/
-      // This extension creates an inline decoration (span.misspelled) for tokens that bloom says are absent.
-      function spellcheckPlugin(bloom) {
-        return new Plugin({
-          key: new PluginKey('odiaSpellcheck'),
-          props: {
-            decorations(state) {
-              const decorations = [];
-              const re = /\S+/g;
 
-              // iterate all text nodes and find tokens inside each text node
-              state.doc.descendants((node, pos) => {
-                if (node.isText) {
-                  const text = node.text || '';
-                  let m;
-                  while ((m = re.exec(text)) !== null) {
-                    const token = m[0];
-                    const from = pos + m.index;
-                    const to = from + token.length;
-                    // check bloom: if NOT present, add decoration
-                    const present = checkTokenWithBloom(token, bloom);
-                    if (!present) {
-                      decorations.push( Decoration.inline(from, to, { class: 'misspelled' }) );
-                    }
-                  }
-                }
-              });
+function spellcheckPlugin() {
+  return new Plugin({
+    // FIX 2a: Use the externally defined key
+    key: ODIA_SPELLCHECK_KEY,
 
-              if (decorations.length === 0) return DecorationSet.empty;
-              return DecorationSet.create(state.doc, decorations);
-            }
-          }
-        });
+    state: {
+      init(_, { doc }) {
+        return computeDecorations(doc);
+      },
+      apply(tr, oldState) {
+        // DEBUG LOG: This will confirm if the apply method is running
+        console.log("Spellcheck Plugin: apply called. Doc changed:", tr.docChanged);
+
+        if (tr.docChanged) {
+          return computeDecorations(tr.doc);
+        }
+        return oldState.map(tr.mapping, tr.doc);
       }
+    },
+
+    props: {
+      decorations(state) {
+        // FIX 2b: Use the key to reliably retrieve the state field
+        return ODIA_SPELLCHECK_KEY.getState(state);
+      }
+    }
+  });
+}
+
+function computeDecorations(doc) {
+  const bloom = window.__od_bloom; // always read latest bloom
+  
+  // FIX 1: Safely return empty set if the Bloom filter is not loaded yet
+  if (!bloom) {
+    console.warn("Bloom filter not loaded. Returning empty decorations.");
+    return DecorationSet.empty;
+  }
+  
+  const decorations = [];
+  const re = /\S+/g;
+
+  doc.descendants((node, pos) => {
+    if (node.isText) {
+      const text = node.text || '';
+      let m;
+      re.lastIndex = 0;
+
+      while ((m = re.exec(text)) !== null) {
+        const token = m[0];
+        const from = pos + m.index;
+        const to = from + token.length;
+
+        const present = checkTokenWithBloom(token, bloom);
+        console.log("Token:", token, "Present:", present);
+
+        if (!present) {
+          decorations.push(
+            Decoration.inline(from, to, { class: "misspelled" })
+          );
+        }
+      }
+    }
+  });
+
+  console.log("Total decorations:", decorations.length);
+  return decorations.length
+    ? DecorationSet.create(doc, decorations)
+    : DecorationSet.empty;
+}
 
       /********** Editor initialization after bloom load **********/
       // Keep references globally for keyboard script to use
@@ -405,33 +516,36 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
             Paragraph,
             Text,
             HardBreak,
-            // add a lightweight extension that registers our plugin
-            {
-              name: 'odia-spellcheck-wrapper',
-              // addProseMirrorPlugins will be called by tiptap; we return the plugin with bloom
-              addProseMirrorPlugins() {
-                return [ spellcheckPlugin(bloom) ];
-              }
-            }
+	    spellcheckPlugin(),
           ],
           content: '<p></p>',
           autofocus: true,
           editable: true
         });
+        
+        // FIX 2: Manually re-dispatch a transaction to force the plugin to run after bloom is loaded
+        if (bloom) {
+          const view = editor.view;
+          // Dispatch an empty transaction to trigger the plugin's 'apply' method now that __od_bloom is set.
+          view.dispatch(view.state.tr);
+        }
 
         // expose editor for keyboard script to use
         window.__odia_editor = editor;
 
         // small helper used by keyboard script to insert at cursor, delete etc.
-        window.__odia_insertText = function(text) {
-          if (!window.__odia_editor) return;
-          // TipTap insertContent deals with newlines as paragraphs. We want to insert raw text as typed.
-          // The easiest robust way: use ProseMirror transaction insertText via editor.view
-          const view = window.__odia_editor.view;
-          const { from, to } = view.state.selection;
-          view.dispatch(view.state.tr.insertText(String(text), from, to).scrollIntoView());
-          window.__odia_editor.view.focus();
-        };
+window.__odia_insertText = function(text) {
+          if (!window.__odia_editor) return;
+          
+          // Use the TipTap insertContent command. This method is the most reliable way 
+          // to insert content and ensures correct selection updates across browsers.
+          window.__odia_editor.chain()
+            .insertContent(String(text))
+            .run();
+          
+          // Explicitly focus the editor after insertion
+          window.__odia_editor.view.focus();
+        };
 
         window.__odia_deleteBeforeCaret = function() {
           const view = window.__odia_editor.view;
@@ -560,12 +674,17 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
           }
         }
 
-        function handleKeyPress(code, withShift){
+function handleKeyPress(code, withShift){
           const defs = Object.prototype.hasOwnProperty.call(KEYMAP, code) ? KEYMAP[code] : null;
           if (code === 'Backspace'){ deleteBeforeCaret(); return; }
           if (code === 'Enter'){ insertAtRange('\n'); return; }
           if (code === 'Tab'){ insertAtRange('    '); return; }
-          if (code === 'Space'){ insertAtRange(' '); return; }
+          
+          if (code === 'Space'){ 
+            insertAtRange(' '); 
+            // No delay here. Rely on the insertAtRange/focus() in __odia_insertText
+            return; 
+          }
           if (!defs) return;
           const char = withShift ? (defs.shift || defs.normal) : defs.normal;
           if (char == null || char === '') return;
@@ -602,6 +721,9 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
             setKeyActive(code, true);
             const keyEl = kbdContainer.querySelector(`.k[data-code="${code}"]`);
             if (keyEl) ripple(keyEl, 0, 0);
+            if (window.__odia_editor) {
+                window.__odia_editor.view.focus();
+            }
           } else {
             if (code === 'Backspace'){
               e.preventDefault(); deleteBeforeCaret(); setKeyActive(code,true);
@@ -657,7 +779,7 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
           renderKeyboard();
           bindEvents();
           const pref = (function(){ try { return localStorage.getItem('odiatyping_layout'); } catch(e) { return null; } })();
-          applyLayout(pref === 'stacked' ? 'stacked' : 'side');
+          applyLayout(pref === 'side' ? 'side' : 'stacked');
           window.addEventListener('resize', ()=> { if (window.innerWidth < 640) applyLayout('stacked'); });
         }
         init();

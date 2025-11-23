@@ -27,7 +27,8 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.25rem;
   margin-top: 1.25rem;
-  overflow-x: hidden;
+  grid-auto-rows: auto;
+  align-items: start;
 }
 
 /* Card */
@@ -42,9 +43,10 @@
   border: 1px solid rgba(15,23,42,0.04);
   transition: transform .15s ease, box-shadow .15s ease;
   width: 100%;
-  overflow: hidden;
   /* ensure long content cannot force the card wider */
   min-width: 0;
+  align-self: start;   /* override any centering/stretching from ancestor grid */
+  min-height: 0; 
 }
 
 /* hover effect */
@@ -68,7 +70,6 @@
   flex-shrink: 0;
   border: 1px solid rgba(47,109,252,0.12);
   background: linear-gradient(180deg, rgba(47,109,252,0.12), rgba(47,109,252,0.06));
-  overflow: hidden;
 }
 
 /* image avatar variant */
@@ -83,9 +84,12 @@
 
 /* info column — allow truncation instead of forcing width */
 .editorial-page .editor-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   flex: 1 1 auto;
+  min-height: 0;
   min-width: 0;       /* critical: lets the text wrap/truncate instead of expanding card */
-  overflow: hidden;
 }
 
 /* name, role, affiliation */
@@ -93,9 +97,6 @@
   font-weight: 700;
   font-size: 1rem;
   color: #0f172a;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .editorial-page .editor-role {
@@ -117,9 +118,10 @@
   font-size: 0.9rem;
   color: #475569;
   line-height: 1.45;
-  max-height: 4.35rem;   /* roughly ~3 lines */
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-height: none;
+  white-space: normal;     /* prevent accidental no-wrap */
+  overflow: visible;       /* make sure nothing clips it */
+  word-break: break-word;  /* force wrap on long strings/URLs */
 }
 
 /* small utilities */
@@ -176,6 +178,7 @@
 @media (max-width: 420px) {
   .editorial-page .editor-avatar,
   .editorial-page .editor-card img.editor-avatar {
+    flex-shrink: 0;
     width: 48px;
     height: 48px;
     min-width: 48px;

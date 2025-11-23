@@ -18,10 +18,9 @@ const About: React.FC = () => {
 
   return (
     <section className="about-page page-container">
-      <h1>{t("about.title")}</h1>
+      <h1 style={{ marginTop: "2rem" }}>{t("about.title")}</h1>
 
-      <p className="left-align">{t("about.intro1")}</p>
-      <p className="left-align">{t("about.intro2")}</p>
+      <p className="left-align">{t("about.para")}</p>
 
       <section
         className="about-editorial editorial-page"
@@ -66,6 +65,9 @@ const About: React.FC = () => {
                     <div className="editor-name" title={ed.name}>
                       {ed.name}
                     </div>
+		    <div className="editor-name" title={ed.odia_name} style={{ fontSize: "1.25rem" }}>
+                      {ed.odia_name}
+                    </div>
                     <div className="editor-role">{ed.role}</div>
                     <div className="editor-affiliation">{ed.affiliation}</div>
                     {ed.bio && <div className="editor-bio">{ed.bio}</div>}
@@ -82,11 +84,6 @@ const About: React.FC = () => {
           </>
         )}
       </section>
-
-      <h1 style={{ marginTop: "2rem" }}>{t("about.historyTitle")}</h1>
-
-      <p className="left-align">{t("about.history1")}</p>
-      <p className="left-align">{t("about.history2")}</p>
     </section>
   );
 };
