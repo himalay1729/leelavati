@@ -8,45 +8,19 @@
     "submissionGuidelines": "Submission Guidelines"
   },
   "forAuthors": {
-    "title": "For Authors",
-    "intro": "Leelavati welcomes clear, well-written submissions on mathematics education, the history of mathematics, problem solving, and original student-friendly expositions.",
     "scopeTitle": "Scope of the Journal",
-    "scopeDescription": "Leelavati publishes articles aimed at school students and teachers: expository pieces, problem sets, historical essays, classroom activities, and short research notes that are accessible at the school level.",
+    "scopeDescription": "Leelavati publishes expository pieces, problem sets, historical essays etc. aimed at school students and teachers.",
     "guidelines": {
-      "length": "Article length: typically 1000–3000 words depending on content.",
+      "length": "Article length: typically 2-4 pages.",
       "resources": "Problem sets and teacher resources are welcome.",
-      "originality": "Submitted material should be original and not under consideration elsewhere."
+      "originality": "Submitted material should be original."
     },
-    "latexTitle": "Manuscript preparation & LaTeX style",
-    "latexIntro": "We prefer submissions in LaTeX. Use the Leelavati style file to format your paper; it sets margins, fonts, title layout, and bibliography style.",
-    "downloadSty": "Download leelavati.sty",
-    "styNote": "Place the .sty file in your project root or upload it with your submission.",
-    "quickInstructionsTitle": "Quick instructions",
-    "quickInstructions": {
-      "step1": "Compile with xelatex or lualatex (fontspec-compatible compilers).",
-      "step2": "Include the style at the top of your document: \\usepackage{leelavati}",
-      "step3": "References: use BibTeX/BibLaTeX as directed by the style file (APA-like formatting)."
-    },
-    "odiaTitle": "Typesetting Odia (ଓଡ଼ିଆ) with LaTeX",
-    "odiaIntro": "For Odia text, use XeLaTeX or LuaLaTeX. Use fontspec together with polyglossia (or babel) to select the Odia font and language. A good Odia font is Noto Sans Oriya.",
-    "odiaExampleTitle": "Minimal Odia XeLaTeX example",
-    "notesTitle": "Notes:",
-    "notes": {
-      "fontInstall": "Make sure the Odia/OpenType font is installed locally or added to your Overleaf project.",
-      "compile": "fontspec + polyglossia require compiling with XeLaTeX or LuaLaTeX.",
-      "fontIssues": "If you face shaping or diacritic issues, try alternative Odia fonts such as Noto Sans Oriya."
-    },
-    "advancedSetup": "For advanced bilingual setups (mixing math, English, and Odia), authors can assign separate fonts for Latin and Odia scripts so math remains unaffected.",
-    "odiaDemo": "Odia InScript Demo",
-    "submissionTitle": "Submission",
-    "submissionDetails": "Submit manuscripts as a zip containing source <code>.tex</code>, the <code>.bib</code> file, fonts, images, and a PDF output to <a href='mailto:{{email}}'>{{email}}</a>."
-  },
-  "policies": {
-    "title": "Editorial & Privacy Policies",
-    "privacyTitle": "Privacy Policy",
-    "privacyText": "We respect the privacy of all our contributors and readers. Personal data collected is used solely for communication and publication purposes.",
-    "editorialTitle": "Editorial Policy",
-    "editorialText": "All submissions undergo peer review. The editorial team ensures that articles meet the highest academic standards before publication."
+    "latexTitle": "Article preparation & LaTeX style",
+    "latexIntro": "We prefer submissions prepared in LaTeX. Please use the Leelavati style file to format your manuscript.",
+    "styNote": "You may directly edit the sample English or Odia articles in the downloaded folder and compile them. All the required fonts have been included.",
+    "odiaTypeIntro": "Below is a link to an online typing tool where you can type in Odia without installing any software.",
+    "submissionTitle": "Submitting Articles",
+    "submissionInstruction": "Please send your article to leelavati.ocmse@gmail.com"
   },
   "common": {
     "loading": "Loading…",
