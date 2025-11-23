@@ -20,6 +20,15 @@ export interface Volume {
   issues: Issue[];
 }
 
+export interface Editor {
+  name: string;
+  odianame?: string;
+  affiliation?: string;
+  role?: string;
+  bio?: string;
+  photoUrl?: string;
+}
+
 export interface MagazineDB {
   volumes: Volume[];
 }
