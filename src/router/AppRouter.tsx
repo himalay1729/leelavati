@@ -2,18 +2,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
-import Editors from "../pages/Editors";
 import CurrentIssue from "../pages/CurrentIssue";
 import Archive from "../pages/Archive";
 import IssueDetail from "../pages/IssueDetail";
 import About from "../pages/About";
-import Policies from "../pages/Policies";
 import Subscribe from "../pages/Subscribe";
 import ForAuthors from "../pages/ForAuthors";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-
-// import CompanyHeaderMark from "../components/CompanyHeaderMark";
 
 function AppRouter() {
   const { i18n } = useTranslation();
@@ -21,10 +17,10 @@ function AppRouter() {
   // 🧠 Optional: Automatically switch i18n language when route starts with /or
   useEffect(() => {
     const path = window.location.pathname;
-    if (path.startsWith("/or") && i18n.language !== "or") {
-      i18n.changeLanguage("or");
-    } else if (!path.startsWith("/or") && i18n.language !== "en") {
+    if (path.startsWith("/en") && i18n.language !== "en") {
       i18n.changeLanguage("en");
+    } else if (!path.startsWith("/en") && i18n.language !== "or") {
+      i18n.changeLanguage("or");
     }
   }, [i18n]);
 
@@ -36,29 +32,23 @@ function AppRouter() {
       <main>
         <Routes>
           {/* 🌐 English routes */}
+          <Route path="/en" element={<Home />} />
+          <Route path="/en/current-issue" element={<CurrentIssue />} />
+          <Route path="/en/archive" element={<Archive />} />
+          <Route path="/en/issues/:slug" element={<IssueDetail />} />
+          <Route path="/en/about" element={<About />} />
+          <Route path="/en/subscribe" element={<Subscribe />} />
+          <Route path="/en/for-authors" element={<ForAuthors />} />
+
+          {/* 🌐 Odia routes (mirror the English ones) */}
           <Route path="/" element={<Home />} />
           <Route path="/current-issue" element={<CurrentIssue />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/issues/:slug" element={<IssueDetail />} />
           <Route path="/about" element={<About />} />
-          <Route path="/editors" element={<Editors />} />
-          <Route path="/policies" element={<Policies />} />
           <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/for-authors" element={<ForAuthors />} />
 
-          {/* 🌐 Odia routes (mirror the English ones) */}
-          <Route path="/or" element={<Home />} />
-          <Route path="/or/current-issue" element={<CurrentIssue />} />
-          <Route path="/or/archive" element={<Archive />} />
-          <Route path="/or/issues/:slug" element={<IssueDetail />} />
-          <Route path="/or/about" element={<About />} />
-          <Route path="/or/editors" element={<Editors />} />
-          <Route path="/or/policies" element={<Policies />} />
-          <Route path="/or/subscribe" element={<Subscribe />} />
-          <Route path="/or/for-authors" element={<ForAuthors />} />
-
-          {/* Redirect unknown Odia paths to English or home */}
-          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 

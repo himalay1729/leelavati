@@ -8,10 +8,15 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { i18n } = useTranslation();
 
-  const isOdia = i18n.language === "or";
+  const isEnglish = i18n.language === "en";
 
   // Helper function to prefix Odia URLs
-  const localizedPath = (path:any) => (isOdia ? `/or${path}` : path);
+const localizedPath = (path: string) => {
+  if (isEnglish) {
+    return path === "/" ? "/en" : `/en${path}`;
+  }
+  return path;
+};
 
   return (
     <header className="header">

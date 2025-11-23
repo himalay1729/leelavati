@@ -6,23 +6,32 @@ const LanguageToggle = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isOdia = i18n.language === "or";
+  const isEnglish = i18n.language === "en";
 
   const toggleLanguage = () => {
-    const newLang = isOdia ? "en" : "or";
-    i18n.changeLanguage(newLang);
+    // sanitize current path (remove leading /en if present)
+    const strippedPath = location.pathname.replace(/^\/en(\/|$)/, "/").replace(/^\//, "/");
+    const pathWithoutEn = strippedPath === "/" ? "/" : strippedPath.replace(/\/$/, "");
+    const search = location.search || "";
+    const hash = location.hash || "";
 
-    // Update URL path
-    const newPath = isOdia
-      ? location.pathname.replace("/or", "") // remove '/or' for English
-      : `/or${location.pathname}`; // add '/or' for Odia
-
-    navigate(newPath);
+    if (isEnglish) {
+      // Going to Odia (default): remove /en, land on "/" if that was the path
+      const newPath = pathWithoutEn === "/" ? "/" : pathWithoutEn;
+      i18n.changeLanguage("or");
+      navigate(`${newPath}${search}${hash}`);
+    } else {
+      // Going to English: ensure single /en prefix (avoid double /en/en)
+      const cleaned = location.pathname.replace(/^\/en/, "");
+      const newPath = `/en${cleaned || "/"}`;
+      i18n.changeLanguage("en");
+      navigate(`${newPath}${search}${hash}`);
+    }
   };
 
   return (
     <button onClick={toggleLanguage}>
-      {isOdia ? "Switch to English" : "ଓଡିଆକୁ ବଦଳାନ୍ତୁ"}
+      {isEnglish ? "ଓଡିଆକୁ ବଦଳାନ୍ତୁ":"Switch to English"}
     </button>
   );
 };
