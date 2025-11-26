@@ -29,8 +29,16 @@
       "odianame": "ହିମାଳୟ ସେନାପତି",
       "affiliation": "AVP, HSBC",
       "role": "Associate Editor",
-      "bio": "After a BSc, MSc and PhD in Theoretical Physics from the Chennai Mathematical Institute, Himalaya has been working in the finance industry for the last four years, initially as a Core Quant Strat at Goldman Sachs and now as a Equity Derivative Analyst at HSBC. He has also been actively involved as a teacher in various mathematics camps for school students. In his school days, from class IX to XII, Himalaya consistently ranked among the top 30 students in the country in the mathematics and astronomy olympiads. Additionally, in class IX, he was in the top 6 and represented India in the International Astronomy Olympiad and achieved a silver medal.",
+      "bio": "After a PhD in Physics, Himalaya has been working in the finance industry, initially as a Core Quant Strat at Goldman Sachs and now as an Equity Derivative Analyst at HSBC. He has also been actively involved as a teacher in various mathematics camps for school students. In his school days, Himalaya consistently ranked among the top 30 students in the country in the mathematics and astronomy olympiads. Additionally, in class IX, he was in the top 6 and represented India in the International Astronomy Olympiad and achieved a silver medal.",
       "photoUrl": "/editors/himalaya.jpg"
+    },
+    {
+      "name": "Dr. Shyam Sundar Agrawal",
+      "odianame": "ଶ୍ୟାମ ଶୁନ୍ଦର ଅଗ୍ରୱାଲ",
+      "affiliation": "Rani Rashmoni Highschool",
+      "role": "Editorial Advisory Board",
+      "bio": "After completing his PhD in the intersection of Mathematics, Computer Science and Management Science, Shyam followed his passion for teaching and began working with high school students. He brings over twenty-six years of experience in teaching and research. An active contributor to the mathematical community and the Olympiad ecosystem, he has been recognized with multiple state- and national-level awards in Mathematics.",
+      "photoUrl": "/editors/shyam.jpg"
     },
     {
       "name": "Prof. Anup Dixit",
@@ -45,16 +53,8 @@
       "odianame": "ଶ୍ରୀନିବାସ କୋଟାୟଡା",
       "affiliation": "IISER Tirupati",
       "role": "Editorial Advisory Board",
-      "bio": "",
+      "bio": "Srinivas is a Visiting Professor at IISER Tirupati and former Professor H at IMSc, Chennai. A distinguished researcher, he has collaborated widely with institutions across India, Europe, and Canada. He has served on the Executive Council of the Ramanujan Mathematical Society and on the Boards of Studies of several institutions, including NIT Rourkela and the Central University of Tamil Nadu. He was Co-Managing Editor of both the Hardy-Ramanujan Journal and the Journal of the RMS. A key contributor to national training programmes such as MTTS and INSPIRE, he has organized numerous conferences and instructional schools. He remains deeply committed to outreach, delivering many popular talks on Ramanujan’s mathematics, including broadcasts on AIR Delhi.",
       "photoUrl": "/editors/srinivas.jpg"
-    },
-    {
-      "name": "Dr. Shyam Shundar Agrawal",
-      "odianame": "ଶ୍ୟାମ ଶୁନ୍ଦର ଅଗ୍ରୱାଲ",
-      "affiliation": "",
-      "role": "Editorial Advisory Board",
-      "bio": "",
-      "photoUrl": "/editors/shyam.jpg"
     }
   ]
 }
