@@ -31,6 +31,18 @@
   align-items: start;
 }
 
+.editorial-page .editor-homepage {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2f6dfc;
+  text-decoration: none;
+}
+
+.editorial-page .editor-homepage:hover {
+  text-decoration: underline;
+}
+
 /* Card */
 .editorial-page .editor-card {
   display: flex;
@@ -172,6 +184,7 @@
   .editorial-page .editor-card { gap: 0.6rem; padding: 0.95rem; }
   .editorial-page .editor-avatar { min-width: 48px; min-height: 48px; font-size: 0.95rem; }
   .editorial-page .editor-name { white-space: normal; }
+  .editorial-page .editor-bio {color: #334155;line-height: 1.55;}
 }
 
 /* Very small screens: reduce avatar and tighten grid */
@@ -190,4 +203,5 @@
   }
 
   .editorial-page .editor-name { white-space: normal; }
+  .editorial-page .editor-bio {color: #334155;line-height: 1.55;}
 }

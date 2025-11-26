@@ -14,7 +14,8 @@
       "affiliation": "IIT Kharagpur",
       "role": "Editor",
       "bio": "",
-      "photoUrl": "/editors/pratima.jpg"
+      "photoUrl": "/editors/pratima.jpg",
+      "homepage":"https://www.iitkgp.ac.in/department/MA/faculty/ma-pratima"
     },
     {
       "name": "Prof. Soumyashant Nayak",
@@ -22,7 +23,8 @@
       "affiliation": "ISI Bangalore",
       "role": "Associate Editor",
       "bio": "",
-      "photoUrl": "/editors/soumyashant.jpg"
+      "photoUrl": "/editors/soumyashant.jpg",
+      "homepage":"https://www.isibang.ac.in/~soumyashant/"
     },
     {
       "name": "Dr. Himalaya Senapati",
@@ -38,7 +40,8 @@
       "affiliation": "Rani Rashmoni Highschool",
       "role": "Editorial Advisory Board",
       "bio": "After completing his PhD in the intersection of Mathematics, Computer Science and Management Science, Shyam followed his passion for teaching and began working with high school students. He brings over twenty-six years of experience in teaching and research. An active contributor to the mathematical community and the Olympiad ecosystem, he has been recognized with multiple state- and national-level awards in Mathematics.",
-      "photoUrl": "/editors/shyam.jpg"
+      "photoUrl": "/editors/shyam.jpg",
+      "homepage":"http://www.drshyam.ezyro.com/?i=1"
     },
     {
       "name": "Prof. Anup Dixit",
@@ -46,7 +49,8 @@
       "affiliation": "IMSc, Chennai",
       "role": "Editorial Advisory Board",
       "bio": "",
-      "photoUrl": "/editors/anup.jpg"
+      "photoUrl": "/editors/anup.jpg",
+      "homepage":"https://www.imsc.res.in/~anupdixit/index.html"
     },
     {
       "name": "Prof. Srinivas K",
@@ -54,7 +58,8 @@
       "affiliation": "IISER Tirupati",
       "role": "Editorial Advisory Board",
       "bio": "Srinivas is a Visiting Professor at IISER Tirupati and former Professor H at IMSc, Chennai. A distinguished researcher, he has collaborated widely with institutions across India, Europe, and Canada. He has served on the Executive Council of the Ramanujan Mathematical Society and on the Boards of Studies of several institutions, including NIT Rourkela and the Central University of Tamil Nadu. He was Co-Managing Editor of both the Hardy-Ramanujan Journal and the Journal of the RMS. A key contributor to national training programmes such as MTTS and INSPIRE, he has organized numerous conferences and instructional schools. He remains deeply committed to outreach, delivering many popular talks on Ramanujan’s mathematics, including broadcasts on AIR Delhi.",
-      "photoUrl": "/editors/srinivas.jpg"
+      "photoUrl": "/editors/srinivas.jpg",
+      "homepage": "https://www.imsc.res.in/srinivas_kotyada"
     }
   ]
 }

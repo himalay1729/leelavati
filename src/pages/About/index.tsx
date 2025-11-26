@@ -71,6 +71,16 @@ const About: React.FC = () => {
                     <div className="editor-role">{ed.role}</div>
                     <div className="editor-affiliation">{ed.affiliation}</div>
                     {ed.bio && <div className="editor-bio">{ed.bio}</div>}
+			{ed.homepage && (
+    <a
+      href={ed.homepage}
+      className="editor-homepage"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Visit homepage →
+    </a>
+  )}
                   </div>
                 </article>
               ))}
