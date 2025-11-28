@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router-dom";
+import "./langtoggle.css";
 
 const LanguageToggle = () => {
   const { i18n } = useTranslation();
@@ -30,7 +31,7 @@ const LanguageToggle = () => {
   };
 
   return (
-    <button onClick={toggleLanguage}>
+    <button className="lang-toggle" onClick={toggleLanguage}>
       {isEnglish ? "ଓଡିଆକୁ ବଦଳାନ୍ତୁ":"Switch to English"}
     </button>
   );

@@ -46,13 +46,17 @@ a:hover {
   color: white;
   border: none;
   padding: 0.75rem 1.25rem;
-  border-radius: 8px;
+  /*border-radius: 8px;*/
   cursor: pointer;
   font-weight: 500;
-  transition: background 0.3s;
+  /*transition: background 0.3s;*/
+  border-radius: 12px; /* Softer corners */
+  box-shadow: 0 4px 10px rgba(26, 115, 232, 0.2); /* A soft, primary-colored shadow */
+  transition: all 0.3s ease; /* Transition all properties for a smooth hover */
 }
 .btn-primary:hover {
   background: #155ab6;
+  box-shadow: 0 6px 15px rgba(26, 115, 232, 0.3);
 }
 
 .btn-secondary {

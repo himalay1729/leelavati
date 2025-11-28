@@ -203,5 +203,5 @@
   }
 
   .editorial-page .editor-name { white-space: normal; }
-  .editorial-page .editor-bio {color: #334155;line-height: 1.55;}
+  .editorial-page .editor-bio {color: #334155;line-height: 1.55; font-weight: 450; }
 }

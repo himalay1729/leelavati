@@ -97,6 +97,9 @@
 }
 
 @media (max-width: 768px) {
+
+.home h2 { font-size: 1rem; margin-bottom: .8rem;}
+
   .current-issue-content {
     flex-direction: column;
     gap: 0.75rem;

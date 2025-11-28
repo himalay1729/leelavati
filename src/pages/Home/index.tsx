@@ -70,7 +70,7 @@ In the spirit of Bhāskara’s Leelavati -- a journey through the wonders of mat
 	  <Link to={`/issues/${currentIssue.slug}`} className="btn-primary">
               Current Issue
             </Link>
-        <Link to="/archives" className="btn-primary">Archive</Link>
+        <Link to="/archive" className="btn-primary">Archive</Link>
       </div>
     </section>
   );
