@@ -125,7 +125,7 @@
 .editorial-page .editor-bio {
   grid-column: 1 / 4; 
   grid-row: 2 / 3;
-  margin-top: 0.8rem; 
+  margin-top: 0.0rem; 
   font-size: 0.9rem;
   font-size: 0.9rem;
   color: #475569;
@@ -181,8 +181,8 @@
 
 @media (max-width: 600px) {
   .editorial-page .editor-grid { grid-template-columns: 1fr; }
-  .editorial-page .editor-card { gap: 0.6rem; padding: 0.95rem; }
-  .editorial-page .editor-avatar { min-width: 48px; min-height: 48px; font-size: 0.95rem; }
+  .editorial-page .editor-card { padding: 0.95rem; }
+  .editorial-page .editor-avatar { font-size: 0.95rem; }
   .editorial-page .editor-name { white-space: normal; }
   .editorial-page .editor-bio {color: #334155;line-height: 1.55;}
 }
@@ -192,15 +192,16 @@
 
 .editorial-page .editor-card {
   display: grid;
-  grid-template-columns: 60px 0.85rem 1fr;
-
+  border-radius: 3px;
+  grid-template-columns: 60px 7px 1fr;
+}
   .editorial-page .editor-avatar,
   .editorial-page .editor-card img.editor-avatar {
     flex-shrink: 0;
     width: 60px;
     height: 60px;
-    min-width: 48px;
-    min-height: 48px;
+    min-width: 60px;
+    min-height: 60px;
   }
 
   .editorial-page .editor-grid {
@@ -208,5 +209,5 @@
   }
 
   .editorial-page .editor-name { white-space: normal; }
-  .editorial-page .editor-bio {color: #334155;line-height: 1.55;}
+  .editorial-page .editor-bio {color: #334155;line-height: 1.55; margin-top: 0px;}
 }
