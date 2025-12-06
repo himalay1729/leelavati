@@ -70,6 +70,7 @@ const About: React.FC = () => {
                     </div>
                     <div className="editor-role">{ed.role}</div>
                     <div className="editor-affiliation">{ed.affiliation}</div>
+</div>
                     {ed.bio && <div className="editor-bio">{ed.bio}</div>}
 			{ed.homepage && (
     <a
@@ -81,7 +82,6 @@ const About: React.FC = () => {
       Visit homepage →
     </a>
   )}
-                  </div>
                 </article>
               ))}
             </div>
