@@ -137,6 +137,8 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
 #editor .ProseMirror {
   height: 100% !important;
   max-height: 100% !important;
+  white-space: pre-wrap !important; 
+  word-wrap: break-word;
   box-sizing: border-box;
   overflow-y: auto;     /* internal scrolling for long content */
   overflow-x: hidden;
@@ -158,7 +160,7 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
   padding: 0;
   margin: 0;
   font-family: inherit;
-  line-height: 1.5;
+  line-height: 1.2;
   white-space: normal;
   word-break: break-word;
   -webkit-font-smoothing: antialiased;
@@ -175,7 +177,7 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
 #editor .ProseMirror p {
   margin: 0;
   padding: 0;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 #editor .ProseMirror p + p {
@@ -183,13 +185,9 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans O
 }
 
 /* Misspelled decoration */
-span.misspelled {
-  text-decoration: none;
-  border-bottom: 1px solid rgba(220, 38, 38, 0.55);
-  border-radius: 1px;
-  padding-bottom: 0.02em;
-  transform: translateY(0.06em);
-  -webkit-transform: translateY(0.06em);
+.misspelled {
+  text-decoration: underline wavy #dc2626;
+  text-underline-offset: 4px;
   text-decoration-skip-ink: none;
 }
   </style>
@@ -291,7 +289,7 @@ span.misspelled {
     <!-- TipTap + ProseMirror via esm.sh. We use a few small core extensions (document, paragraph, text). -->
     <script type="module">
       // Imports (CDN esm.sh)
-      import { Editor } from 'https://esm.sh/@tiptap/core';
+      import { Editor, Extension } from 'https://esm.sh/@tiptap/core';
       import Document from 'https://esm.sh/@tiptap/extension-document';
       import Paragraph from 'https://esm.sh/@tiptap/extension-paragraph';
       import Text from 'https://esm.sh/@tiptap/extension-text';
@@ -433,10 +431,7 @@ function spellcheckPlugin() {
         return computeDecorations(doc);
       },
       apply(tr, oldState) {
-        // DEBUG LOG: This will confirm if the apply method is running
-        console.log("Spellcheck Plugin: apply called. Doc changed:", tr.docChanged);
-
-        if (tr.docChanged) {
+        if (tr.docChanged || tr.getMeta('SPELLCHECK_FORCE_UPDATE')) {
           return computeDecorations(tr.doc);
         }
         return oldState.map(tr.mapping, tr.doc);
@@ -452,6 +447,15 @@ function spellcheckPlugin() {
   });
 }
 
+const SpellCheckEx = Extension.create({
+          name: 'SpellCheckEx',
+          addProseMirrorPlugins() {
+            return [
+              spellcheckPlugin(), // This now correctly injects your plugin
+            ];
+          },
+        });
+        
 function computeDecorations(doc) {
   const bloom = window.__od_bloom; // always read latest bloom
   
@@ -465,6 +469,12 @@ function computeDecorations(doc) {
   const re = /\S+/g;
 
   doc.descendants((node, pos) => {
+  // Debug log to see if ProseMirror sees the text
+    if (node.isText || node.type.name === 'paragraph') {
+       console.log("Checking node:", node.type.name, "Content:", node.textContent);
+    }
+    
+    
     if (node.isText) {
       const text = node.text || '';
       let m;
@@ -516,7 +526,7 @@ function computeDecorations(doc) {
             Paragraph,
             Text,
             HardBreak,
-	    spellcheckPlugin(),
+            SpellCheckEx,
           ],
           content: '<p></p>',
           autofocus: true,
@@ -527,7 +537,8 @@ function computeDecorations(doc) {
         if (bloom) {
           const view = editor.view;
           // Dispatch an empty transaction to trigger the plugin's 'apply' method now that __od_bloom is set.
-          view.dispatch(view.state.tr);
+          const tr=view.state.tr.setMeta('SPELLCHECK_FORCE_UPDATE', true);
+          view.dispatch(tr);
         }
 
         // expose editor for keyboard script to use
@@ -537,11 +548,13 @@ function computeDecorations(doc) {
 window.__odia_insertText = function(text) {
           if (!window.__odia_editor) return;
           
-          // Use the TipTap insertContent command. This method is the most reliable way 
-          // to insert content and ensures correct selection updates across browsers.
-          window.__odia_editor.chain()
-            .insertContent(String(text))
-            .run();
+
+          window.__odia_editor
+.chain()
+.focus() // Ensures the editor is active
+.insertContent(String(text)) // Inserts the character or \n
+.scrollIntoView() // Forces the scrollbar to follow the cursor
+.run();
           
           // Explicitly focus the editor after insertion
           window.__odia_editor.view.focus();
